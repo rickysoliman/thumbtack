@@ -1,2 +1,5 @@
-<h2>Home Page</h2>
-<p>Welcome to the Home Page!</p>
+<div class="home">
+    <ng-container *ngFor="let post of posts">
+        <app-post [post]="post"></app-post>
+    </ng-container>
+</div>
