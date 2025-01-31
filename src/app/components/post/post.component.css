@@ -10,6 +10,11 @@
     width: 600px;
     font-family: 'Trebuchet MS', sans-serif;
   }
+
+  .title-and-board {
+    display: flex;
+    justify-content: space-between;
+  }
   
   .post h2 {
     font-size: 20px;
@@ -20,7 +25,7 @@
   .post p {
     font-size: 14px;
     color: #555;
-    margin: 5px 0;
+    margin: 0;
   }
   
   .post img {
@@ -48,16 +53,6 @@
     font-size: 12px;
     cursor: pointer;
     border-radius: 5px;
-  }
-  
-  .post .buttons .pinned {
-    background: gold;
-    color: #333;
-  }
-  
-  .post .buttons .archived {
-    background: #ccc;
-    color: #333;
   }
   
   .post .interactions {
