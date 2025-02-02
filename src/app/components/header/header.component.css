@@ -1,5 +1,6 @@
 .header-wrapper {
     width: 100%;
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,5 +34,25 @@
     p {
         margin: 0;
         padding: 0;
+    }
+}
+
+.search-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    .search-input {
+        width: 100%;
+        max-width: 600px;
+        height: 40px;
+        border-radius: 20px;
+        border: none;
+        color: #07224d;
+        padding: 0 10px;
+        margin: 0 20px;
+        font-size: 16px;
     }
 }
