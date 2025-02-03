@@ -57,7 +57,8 @@ mat-form-field {
 ::ng-deep .mat-mdc-text-field-wrapper {
   width: 100% !important;
   max-width: 600px !important;
-  border-radius: 20px !important;
+  border-radius: 20px 20px 0 0 !important;
+  background-color: transparent !important;
   border: none !important;
   color: #07224d !important;
   padding: 0 10px !important;
