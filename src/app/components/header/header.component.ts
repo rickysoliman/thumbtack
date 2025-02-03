@@ -6,6 +6,12 @@ import { AsyncPipe } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { dummyPosts } from '../../models/post.model';
+
+interface Option {
+  title: string;
+  image: string | null;
+}
 
 @Component({
   selector: 'app-header',
@@ -25,11 +31,21 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class HeaderComponent {
   searchControl: FormControl = new FormControl();
-  options: string[] = [];
+  options: Option[] = [];
 
   ngOnInit(): void {
-    this.searchControl.valueChanges.subscribe((value) => {
-      console.log(value);
+    this.searchControl.valueChanges.subscribe((val) => {
+      if (val && val.length > 2) {
+        this.options = dummyPosts
+          .filter((post) =>
+            post.title.toLowerCase().includes(val.toLowerCase())
+          )
+          .map((post) => {
+            return { title: post.title, image: post.image || null };
+          });
+      } else {
+        this.options = [];
+      }
     });
   }
 }

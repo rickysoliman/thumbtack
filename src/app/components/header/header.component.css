@@ -64,3 +64,23 @@ mat-form-field {
   margin: 0 20px !important;
   font-size: 16px !important;
 }
+
+/* TODO: don't use ::ng-deep */
+::ng-deep .mat-mdc-option .mdc-list-item__primary-text {
+  width: 100% !important;
+}
+
+.autocomplete-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.autocomplete-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-left: 10px;
+}
