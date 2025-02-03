@@ -1,22 +1,24 @@
 <div class="header-wrapper">
-    <div class="logo-and-title-wrapper">
-        <img src="../../../assets/thumbtack icon.jpg" class="logo">
-        <div class="title-wrapper">
-            <img src="../../../assets/thumbtack name.jpg" class="title">
-            <p>Post whatever you want!</p>
-        </div>
+  <div class="logo-and-title-wrapper">
+    <img src="../../../assets/thumbtack icon.jpg" class="logo" />
+    <div class="title-wrapper">
+      <img src="../../../assets/thumbtack name.jpg" class="title" />
+      <p>Post whatever you want!</p>
     </div>
-    <form class="search-form">
-        <input type="text"
-            placeholder="Search..."
-            [formControl]="searchControl"
-            [matAutocomplete]="auto"
-            class="search-input">
-        <mat-autocomplete #auto="matAutocomplete">
-            @for (option of options; track option) {
-                <mat-option [value]="option">{{ option }}</mat-option>
-            }
-        </mat-autocomplete>
-    </form>
-    <app-user-actions></app-user-actions>
+  </div>
+  <form class="search-form">
+    <input
+      type="text"
+      placeholder="Search..."
+      [formControl]="searchControl"
+      [matAutocomplete]="auto"
+      class="search-input"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      @for (option of options; track option) {
+      <mat-option [value]="option">{{ option }}</mat-option>
+      }
+    </mat-autocomplete>
+  </form>
+  <app-user-actions></app-user-actions>
 </div>

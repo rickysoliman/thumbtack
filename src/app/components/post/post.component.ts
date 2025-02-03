@@ -7,7 +7,7 @@ import { DatePipe, NgIf } from '@angular/common';
   standalone: true,
   imports: [NgIf, DatePipe],
   templateUrl: './post.component.html',
-  styleUrl: './post.component.css'
+  styleUrl: './post.component.css',
 })
 export class PostComponent {
   @Input() post!: Post;
@@ -15,7 +15,9 @@ export class PostComponent {
   getRelativeTime(date: Date): string {
     const now = new Date();
     const postDate = new Date(date);
-    const diffInSeconds = Math.floor((now.getTime() - postDate.getTime()) / 1000);
+    const diffInSeconds = Math.floor(
+      (now.getTime() - postDate.getTime()) / 1000
+    );
 
     if (diffInSeconds < 60) {
       return `${diffInSeconds} seconds ago`;

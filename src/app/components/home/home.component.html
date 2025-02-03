@@ -1,7 +1,11 @@
 <div class="home">
-    <mat-card *ngFor="let post of posts" appearance="outlined" class="mat-card-post">
-        <mat-card-content>
-            <app-post [post]="post"></app-post>
-        </mat-card-content>
-    </mat-card>
+  <mat-card
+    *ngFor="let post of posts"
+    appearance="outlined"
+    class="mat-card-post"
+  >
+    <mat-card-content>
+      <app-post [post]="post"></app-post>
+    </mat-card-content>
+  </mat-card>
 </div>

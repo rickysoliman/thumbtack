@@ -8,9 +8,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [UserActionsComponent, MatAutocompleteModule, FormsModule, ReactiveFormsModule, AsyncPipe, MatFormFieldModule],
+  imports: [
+    UserActionsComponent,
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AsyncPipe,
+    MatFormFieldModule,
+  ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
   searchControl: FormControl = new FormControl();

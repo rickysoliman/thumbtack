@@ -1,11 +1,11 @@
 .user-actions-wrapper {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .material-icons {
-    color: #08979f;
-    margin: 5px;
+  color: #08979f;
+  margin: 5px;
 }
