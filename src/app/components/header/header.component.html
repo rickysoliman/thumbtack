@@ -7,18 +7,22 @@
     </div>
   </div>
   <form class="search-form">
-    <input
-      type="text"
-      placeholder="Search..."
-      [formControl]="searchControl"
-      [matAutocomplete]="auto"
-      class="search-input"
-    />
-    <mat-autocomplete #auto="matAutocomplete">
-      @for (option of options; track option) {
-      <mat-option [value]="option">{{ option }}</mat-option>
-      }
-    </mat-autocomplete>
+    <mat-form-field class="search-field">
+      <mat-icon matPrefix class="search-icon">search</mat-icon>
+      <input
+        matInput
+        type="text"
+        placeholder="Search..."
+        [formControl]="searchControl"
+        [matAutocomplete]="auto"
+        class="search-input"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        @for (option of options; track option) {
+        <mat-option [value]="option">{{ option }}</mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
   </form>
   <app-user-actions></app-user-actions>
 </div>

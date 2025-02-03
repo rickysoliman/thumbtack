@@ -43,16 +43,24 @@
   display: flex;
   justify-content: start;
   align-items: center;
+  padding-top: 10px;
+  margin-top: 10px;
+}
 
-  .search-input {
-    width: 100%;
-    max-width: 600px;
-    height: 40px;
-    border-radius: 20px;
-    border: none;
-    color: #07224d;
-    padding: 0 10px;
-    margin: 0 20px;
-    font-size: 16px;
-  }
+mat-form-field {
+  width: 100% !important;
+  max-width: 600px !important;
+  margin-left: 20px;
+}
+
+/* TODO: don't use ::ng-deep */
+::ng-deep .mat-mdc-text-field-wrapper {
+  width: 100% !important;
+  max-width: 600px !important;
+  border-radius: 20px !important;
+  border: none !important;
+  color: #07224d !important;
+  padding: 0 10px !important;
+  margin: 0 20px !important;
+  font-size: 16px !important;
 }
