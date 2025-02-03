@@ -66,7 +66,6 @@ mat-form-field {
   font-size: 16px !important;
 }
 
-/* TODO: don't use ::ng-deep */
 ::ng-deep .mat-mdc-option .mdc-list-item__primary-text {
   width: 100% !important;
 }
@@ -87,10 +86,20 @@ mat-form-field {
 }
 
 .user-actions-wrapper {
-  height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  margin-right: 10px;
+}
+
+.user-actions-wrapper mat-icon {
+  margin-left: 15px;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.user-actions-wrapper mat-icon:hover {
+  color: #07969e;
+  transform: scale(1.2);
 }
 
 .material-icons {
