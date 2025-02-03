@@ -27,7 +27,7 @@ interface Option {
     MatTooltipModule,
   ],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
   searchControl: FormControl = new FormControl();

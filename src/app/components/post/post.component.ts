@@ -7,7 +7,7 @@ import { DatePipe, NgIf } from '@angular/common';
   standalone: true,
   imports: [NgIf, DatePipe],
   templateUrl: './post.component.html',
-  styleUrl: './post.component.css',
+  styleUrl: './post.component.scss',
 })
 export class PostComponent {
   @Input() post!: Post;
