@@ -1,3 +1,13 @@
+:root {
+  --mat-focus-color: var(--primary-light);
+}
+
+mat-form-field {
+  --mdc-filled-text-field-focus-active-indicator-color: unset;
+  --mdc-outlined-text-field-focus-outline-color: unset;
+  --mdc-text-field-ink-color: unset;
+}
+
 .header-wrapper {
   width: 100%;
   height: 100px; /* TODO: change to 56px when scrolling down */
@@ -5,7 +15,7 @@
   justify-content: space-between;
   align-items: center;
   font-family: "Trebuchet MS", sans-serif;
-  border-bottom: 1px solid #07224d;
+  border-bottom: 1px solid var(--primary-dark);
 }
 
 .logo {
@@ -60,7 +70,7 @@ mat-form-field {
   border-radius: 20px 20px 0 0 !important;
   background-color: transparent !important;
   border: none !important;
-  color: #07224d !important;
+  color: var(--primary-dark) !important;
   padding: 0 10px !important;
   margin: 0 20px !important;
   font-size: 16px !important;
@@ -68,6 +78,10 @@ mat-form-field {
 
 ::ng-deep .mat-mdc-option .mdc-list-item__primary-text {
   width: 100% !important;
+}
+
+.search-input {
+  color: var(--text-color) !important;
 }
 
 .autocomplete-option {
@@ -98,11 +112,11 @@ mat-form-field {
 }
 
 .user-actions-wrapper mat-icon:hover {
-  color: #07969e;
+  color: var(--primary-light);
   transform: scale(1.2);
 }
 
 .material-icons {
-  color: #07234b;
+  color: var(--primary-dark);
   margin: 5px;
 }
