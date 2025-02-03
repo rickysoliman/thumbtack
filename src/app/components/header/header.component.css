@@ -85,3 +85,15 @@ mat-form-field {
   border-radius: 5px;
   margin-left: 10px;
 }
+
+.user-actions-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.material-icons {
+  color: #07234b;
+  margin: 5px;
+}

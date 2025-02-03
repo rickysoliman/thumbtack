@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserActionsComponent } from '../../user-actions/user-actions.component';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AsyncPipe } from '@angular/common';
@@ -17,7 +16,6 @@ interface Option {
   selector: 'app-header',
   standalone: true,
   imports: [
-    UserActionsComponent,
     MatAutocompleteModule,
     FormsModule,
     ReactiveFormsModule,
