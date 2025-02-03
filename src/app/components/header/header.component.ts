@@ -5,6 +5,7 @@ import { AsyncPipe } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { dummyPosts } from '../../models/post.model';
 
 interface Option {
@@ -23,6 +24,7 @@ interface Option {
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
+    MatTooltipModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
