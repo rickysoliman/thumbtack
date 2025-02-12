@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AsyncPipe } from '@angular/common';
@@ -32,6 +32,7 @@ interface Option {
 export class HeaderComponent {
   searchControl: FormControl = new FormControl();
   options: Option[] = [];
+  isShrunk: boolean = false;
 
   ngOnInit(): void {
     this.searchControl.valueChanges.subscribe((val) => {
@@ -47,5 +48,10 @@ export class HeaderComponent {
         this.options = [];
       }
     });
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isShrunk = window.scrollY > 50;
   }
 }
