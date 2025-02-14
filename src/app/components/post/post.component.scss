@@ -1,10 +1,20 @@
 .post {
   display: flex;
   flex-direction: column;
+  padding: 15px;
   gap: 10px;
-  width: 100%;
+  width: auto;
   height: 100%;
   font-family: "Trebuchet MS", sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.post:hover {
+  color: var(--primary-light);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .title-and-board {
@@ -12,14 +22,30 @@
   justify-content: space-between;
 }
 
-.post h2 {
-  font-size: 20px;
+.post-title {
+  font-size: 1.5em;
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.post-board {
+  text-decoration: none;
   color: var(--text-color);
-  margin: 0;
+}
+
+.post-title:hover,
+.post-board:hover {
+  color: var(--primary-light);
+  text-decoration: underline;
+}
+
+.post .meta p {
+  font-size: 13px;
+  color: var(--text-color-meta);
 }
 
 .post p {
-  font-size: 14px;
   color: var(--text-color);
   margin: 0;
 }
@@ -30,11 +56,6 @@
   object-fit: cover;
   border-radius: 8px;
   margin-top: 10px;
-}
-
-.post .meta {
-  font-size: 12px;
-  color: var(--text-color);
 }
 
 .post .buttons {

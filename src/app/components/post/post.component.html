@@ -1,15 +1,18 @@
 <div class="post">
   <div class="title-and-board">
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.board }}</p>
+    <a href="#" class="post-title">{{ post.title }}</a>
+    <a href="#" class="post-board">{{ post.board }}</a>
   </div>
-  <p>{{ post.author }}</p>
-  <p>{{ getRelativeTime(post.createdAt) }}</p>
-  <p>{{ post.content }}</p>
+  <div class="meta">
+    <p>{{ post.author }} | {{ getRelativeTime(post.createdAt) }}</p>
+  </div>
+  <p class="content">{{ post.content }}</p>
   <img *ngIf="post.image" [src]="post.image" alt="Post Image" />
-  <p>
-    <strong>Likes:</strong> {{ post.likes }} | <strong>Dislikes:</strong>
-    {{ post.dislikes }}
-  </p>
-  <p><strong>Comments:</strong> {{ post.commentsCount }}</p>
+  <div class="meta">
+    <p>
+      <strong>Likes:</strong> {{ post.likes }} | <strong>Dislikes:</strong>
+      {{ post.dislikes }}
+    </p>
+    <p><strong>Comments:</strong> {{ post.commentsCount }}</p>
+  </div>
 </div>
