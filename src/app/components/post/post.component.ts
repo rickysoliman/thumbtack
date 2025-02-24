@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Post } from '../../models/post.model';
 import { DatePipe, NgIf } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-post',
   standalone: true,
-  imports: [NgIf, DatePipe],
+  imports: [NgIf, DatePipe, RouterLink, RouterLinkActive],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',
 })

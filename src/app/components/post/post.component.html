@@ -1,5 +1,7 @@
 <div class="post">
-  <a *ngIf="isHomepage" href="#" class="post-board">b/{{ post.board }}</a>
+  <a *ngIf="isHomepage" [routerLink]="['/b', post.board]" class="post-board">
+    b/{{ post.board }}
+  </a>
   <a href="#" class="post-title">{{ post.title }}</a>
   <div class="meta">
     <p>{{ post.author }} | {{ getRelativeTime(post.createdAt) }}</p>
