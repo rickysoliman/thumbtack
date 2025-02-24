@@ -1,0 +1,27 @@
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .post-container {
+    background: var(--primary-white);
+    padding: 0;
+    margin: 0;
+    width: 900px;
+    border-top: none;
+    border-left: 1px solid var(--primary-dark-transparent);
+    border-right: 1px solid var(--primary-dark-transparent);
+    border-bottom: 1px solid var(--primary-dark-transparent);
+  }
+
+  .post-container:last-child {
+    margin-bottom: 15px;
+  }
+
+  .board-not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

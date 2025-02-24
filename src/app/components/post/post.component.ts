@@ -11,6 +11,7 @@ import { DatePipe, NgIf } from '@angular/common';
 })
 export class PostComponent {
   @Input() post!: Post;
+  @Input() isHomepage: boolean = true;
 
   getRelativeTime(date: Date): string {
     const now = new Date();

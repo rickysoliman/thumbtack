@@ -16,7 +16,7 @@ export interface Post {
 export const dummyPosts: Post[] = [
   {
     id: '1',
-    board: 'b/spiderman',
+    board: 'spiderman',
     title: 'What do you guys think of the Spider-Man 2 game for PS5?',
     content:
       'I just finished it, and WOW! The web-swinging feels smoother than ever. What are your thoughts?',
@@ -31,7 +31,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '2',
-    board: 'b/godzilla',
+    board: 'godzilla',
     title: 'Is Godzilla x Kong: The New Empire gonna be any good?',
     content:
       'I saw the trailer, and it looks insane. But will it actually be a good movie, or just mindless CGI fights?',
@@ -46,7 +46,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '3',
-    board: 'b/NewDads',
+    board: 'NewDads',
     title: 'Best baby monitors in 2025?',
     content:
       'My little one just started rolling around a lot. Any recommendations for a solid baby monitor with video?',
@@ -59,7 +59,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '4',
-    board: 'b/supersmashbros',
+    board: 'supersmashbros',
     title: 'Who’s your main in Smash Ultimate?',
     content:
       "I've been maining Captain Falcon forever, but I'm trying to pick up Sephiroth. Who do you main?",
@@ -72,7 +72,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '5',
-    board: 'b/programming',
+    board: 'programming',
     title: 'Is TypeScript worth learning in 2025?',
     content:
       "I'm a junior dev, mostly using JavaScript. Should I invest time into learning TypeScript?",
@@ -85,7 +85,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '6',
-    board: 'b/memes',
+    board: 'memes',
     title: 'Programmers trying to fix a bug at 3 AM',
     content: 'Every time I think I solved it, another error pops up. 😂',
     image: 'https://i.redd.it/mdjsol1eiad11.jpg',
@@ -98,7 +98,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '7',
-    board: 'b/chatgpt',
+    board: 'chatgpt',
     title: 'Does ChatGPT actually help with coding?',
     content:
       "I've used it for debugging, but how do you guys integrate it into your workflow?",
@@ -111,7 +111,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '8',
-    board: 'b/spiderman',
+    board: 'spiderman',
     title: 'Tobey, Andrew, or Tom: Who is YOUR Spider-Man?',
     content:
       "Classic debate: Who portrayed Spider-Man the best? Let's hear it!",
@@ -126,7 +126,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '9',
-    board: 'b/godzilla',
+    board: 'godzilla',
     title: 'Best Godzilla fight scene of all time?',
     content: 'For me, it’s Shin Godzilla’s atomic beam sequence. What’s yours?',
     author: 'atomicbreath',
@@ -138,7 +138,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '10',
-    board: 'b/NewDads',
+    board: 'NewDads',
     title: 'How do you guys handle sleep regression?',
     content:
       'My 9-month-old went from sleeping fine to waking up every 2 hours. Any tips?',
@@ -151,7 +151,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '11',
-    board: 'b/supersmashbros',
+    board: 'supersmashbros',
     title: 'They NEED to nerf Steve!',
     content: 'Dude is ridiculous. His combos are unfair. Do you agree?',
     author: 'steveisbroken',
@@ -163,7 +163,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '12',
-    board: 'b/programming',
+    board: 'programming',
     title: 'Frontend vs Backend: Which career path is better?',
     content:
       "I'm trying to decide which path to specialize in. What are the pros and cons of each?",
@@ -176,7 +176,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '13',
-    board: 'b/memes',
+    board: 'memes',
     title: 'Me explaining my code to my rubber duck',
     content: 'It makes sense in my head... 😂',
     image:
@@ -190,7 +190,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '14',
-    board: 'b/chatgpt',
+    board: 'chatgpt',
     title: 'How accurate are ChatGPT predictions?',
     content:
       "I've been testing out ChatGPT's code recommendations. Has anyone encountered any major issues or surprising accuracies?",
@@ -203,7 +203,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '15',
-    board: 'b/spiderman',
+    board: 'spiderman',
     title: 'Anyone excited for the upcoming Spider-Man fan art contest?',
     content:
       "I've seen some awesome sketches already. Who's planning to enter and what style are you going for?",
@@ -218,7 +218,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '16',
-    board: 'b/godzilla',
+    board: 'godzilla',
     title: 'What’s your favorite kaiju moment in the Godzilla franchise?',
     content:
       "From epic battles to surprising character moments, let's discuss the best parts of the series!",
@@ -233,7 +233,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '17',
-    board: 'b/NewDads',
+    board: 'NewDads',
     title: 'Struggling with diaper rash remedies',
     content:
       'My little one has been dealing with diaper rash for a few days now. Any tried-and-true remedies or product recommendations?',
@@ -246,7 +246,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '18',
-    board: 'b/supersmashbros',
+    board: 'supersmashbros',
     title: 'Tips for recovering after a crushing loss in Smash tournaments?',
     content:
       'I just suffered a major upset in my latest match and could use some advice on bouncing back mentally. How do you stay motivated?',
@@ -259,7 +259,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '19',
-    board: 'b/programming',
+    board: 'programming',
     title: "Just discovered Rust and I'm impressed!",
     content:
       "I've been dabbling with Rust recently and love its performance and safety features. Any fellow devs making the switch from JavaScript or other languages?",
@@ -273,7 +273,7 @@ export const dummyPosts: Post[] = [
   },
   {
     id: '20',
-    board: 'b/memes',
+    board: 'memes',
     title: 'That moment when your code actually works on the first run...',
     content:
       'Rare, unexpected, and absolutely priceless. Share your first-run miracle stories!',
