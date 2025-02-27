@@ -51,4 +51,52 @@
     border-radius: 8px;
     margin-top: 10px;
   }
+
+  /* Comments Section */
+  .comments-section {
+    padding: 15px;
+    border-top: 1px solid var(--primary-dark-transparent);
+  }
+
+  .comment {
+    padding: 10px;
+    border-bottom: 1px solid var(--primary-dark-transparent);
+  }
+
+  .comment:last-child {
+    border-bottom: none;
+  }
+
+  .comment-author {
+    font-weight: bold;
+    color: var(--primary-dark);
+  }
+
+  .comment-meta {
+    font-size: 12px;
+    color: var(--text-color-meta);
+  }
+
+  .comment-content {
+    margin-top: 5px;
+    font-size: 14px;
+    color: var(--text-color);
+  }
+
+  .comment-likes {
+    font-size: 12px;
+    color: var(--text-color-meta);
+    margin-top: 5px;
+  }
+
+  /* Replies */
+  .replies {
+    margin-left: 20px;
+    padding-left: 10px;
+    border-left: 2px solid var(--primary-dark-transparent);
+  }
+
+  .reply {
+    padding: 5px 0;
+  }
 }

@@ -1,3 +1,17 @@
+export interface Comment {
+  id: string; // Unique identifier for the comment
+  postId: string; // The ID of the post this comment belongs to
+  author: string; // The user who created the comment
+  createdAt: Date; // Date when the comment was created
+  updatedAt: Date; // Date when the comment was last updated
+  likes: number; // Number of likes the comment has received
+  dislikes: number; // Number of dislikes the comment has received
+  repliesCount: number; // Number of replies to this comment
+  parentId?: string; // The ID of the parent comment if this is a reply
+  content: string; // The content of the comment
+  replies: Comment[]; // Array of replies to this comment
+}
+
 export interface Post {
   id: string; // Unique identifier for the post
   board: string; // The equivalent of a subreddit (e.g., "tech", "music")
@@ -10,6 +24,7 @@ export interface Post {
   likes: number; // Number of likes the post has received
   dislikes: number; // Number of dislikes the post has received
   commentsCount: number; // Number of comments on the post
+  comments: Comment[]; // Array of comments on the post
 }
 
 // dummy data
@@ -27,7 +42,47 @@ export const dummyPosts: Post[] = [
     updatedAt: new Date('2025-02-01T14:00:00'),
     likes: 320,
     dislikes: 15,
-    commentsCount: 45,
+    commentsCount: 2,
+    comments: [
+      {
+        id: '1',
+        postId: '1',
+        author: 'webslinger',
+        createdAt: new Date('2025-02-01T12:30:00'),
+        updatedAt: new Date('2025-02-01T13:00:00'),
+        likes: 50,
+        dislikes: 2,
+        repliesCount: 1,
+        content: 'I loved the story! The character development was top-notch.',
+        replies: [
+          {
+            id: '3',
+            postId: '1',
+            author: 'spideyfan89',
+            createdAt: new Date('2025-02-01T12:30:00'),
+            updatedAt: new Date('2025-02-01T13:00:00'),
+            likes: 50,
+            dislikes: 2,
+            repliesCount: 0,
+            content: 'I agree! It was awesome!',
+            replies: [],
+          },
+        ],
+      },
+      {
+        id: '2',
+        postId: '1',
+        author: 'gamerdude',
+        createdAt: new Date('2025-02-01T12:30:00'),
+        updatedAt: new Date('2025-02-01T13:00:00'),
+        likes: 50,
+        dislikes: 2,
+        repliesCount: 0,
+        content:
+          'Eh I thought it was okay. The combat felt repetitive after a while.',
+        replies: [],
+      },
+    ],
   },
   {
     id: '2',
@@ -43,6 +98,7 @@ export const dummyPosts: Post[] = [
     likes: 280,
     dislikes: 12,
     commentsCount: 65,
+    comments: [],
   },
   {
     id: '3',
@@ -56,6 +112,7 @@ export const dummyPosts: Post[] = [
     likes: 140,
     dislikes: 3,
     commentsCount: 20,
+    comments: [],
   },
   {
     id: '4',
@@ -69,6 +126,7 @@ export const dummyPosts: Post[] = [
     likes: 315,
     dislikes: 10,
     commentsCount: 55,
+    comments: [],
   },
   {
     id: '5',
@@ -82,6 +140,7 @@ export const dummyPosts: Post[] = [
     likes: 210,
     dislikes: 5,
     commentsCount: 30,
+    comments: [],
   },
   {
     id: '6',
@@ -95,6 +154,7 @@ export const dummyPosts: Post[] = [
     likes: 500,
     dislikes: 2,
     commentsCount: 80,
+    comments: [],
   },
   {
     id: '7',
@@ -108,6 +168,7 @@ export const dummyPosts: Post[] = [
     likes: 190,
     dislikes: 7,
     commentsCount: 35,
+    comments: [],
   },
   {
     id: '8',
@@ -123,6 +184,7 @@ export const dummyPosts: Post[] = [
     likes: 450,
     dislikes: 10,
     commentsCount: 100,
+    comments: [],
   },
   {
     id: '9',
@@ -135,6 +197,7 @@ export const dummyPosts: Post[] = [
     likes: 180,
     dislikes: 5,
     commentsCount: 40,
+    comments: [],
   },
   {
     id: '10',
@@ -148,6 +211,7 @@ export const dummyPosts: Post[] = [
     likes: 120,
     dislikes: 2,
     commentsCount: 25,
+    comments: [],
   },
   {
     id: '11',
@@ -160,6 +224,7 @@ export const dummyPosts: Post[] = [
     likes: 270,
     dislikes: 20,
     commentsCount: 50,
+    comments: [],
   },
   {
     id: '12',
@@ -173,6 +238,7 @@ export const dummyPosts: Post[] = [
     likes: 225,
     dislikes: 6,
     commentsCount: 48,
+    comments: [],
   },
   {
     id: '13',
@@ -187,6 +253,7 @@ export const dummyPosts: Post[] = [
     likes: 600,
     dislikes: 3,
     commentsCount: 90,
+    comments: [],
   },
   {
     id: '14',
@@ -200,6 +267,7 @@ export const dummyPosts: Post[] = [
     likes: 165,
     dislikes: 4,
     commentsCount: 28,
+    comments: [],
   },
   {
     id: '15',
@@ -215,6 +283,7 @@ export const dummyPosts: Post[] = [
     likes: 210,
     dislikes: 8,
     commentsCount: 37,
+    comments: [],
   },
   {
     id: '16',
@@ -230,6 +299,7 @@ export const dummyPosts: Post[] = [
     likes: 190,
     dislikes: 7,
     commentsCount: 42,
+    comments: [],
   },
   {
     id: '17',
@@ -243,6 +313,7 @@ export const dummyPosts: Post[] = [
     likes: 130,
     dislikes: 2,
     commentsCount: 19,
+    comments: [],
   },
   {
     id: '18',
@@ -256,6 +327,7 @@ export const dummyPosts: Post[] = [
     likes: 220,
     dislikes: 5,
     commentsCount: 33,
+    comments: [],
   },
   {
     id: '19',
@@ -270,6 +342,7 @@ export const dummyPosts: Post[] = [
     likes: 245,
     dislikes: 6,
     commentsCount: 40,
+    comments: [],
   },
   {
     id: '20',
@@ -285,5 +358,6 @@ export const dummyPosts: Post[] = [
     likes: 540,
     dislikes: 4,
     commentsCount: 75,
+    comments: [],
   },
 ];

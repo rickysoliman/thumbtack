@@ -17,5 +17,39 @@
     </div>
 
     <!-- Comments -->
+    <div class="comments-section" *ngIf="post.comments.length">
+      <h3>Comments ({{ post.commentsCount }})</h3>
+      <div class="comment" *ngFor="let comment of post.comments">
+        <div class="comment-content">
+          <p>
+            <strong>{{ comment.author }}</strong> |
+            {{ getRelativeTime(comment.createdAt) }}
+          </p>
+          <p>{{ comment.content }}</p>
+          <p>
+            <strong>Likes:</strong> {{ comment.likes }} |
+            <strong>Dislikes:</strong> {{ comment.dislikes }}
+          </p>
+        </div>
+
+        <!-- Replies Section -->
+        <div class="replies" *ngIf="comment.replies.length">
+          <h4>Replies ({{ comment.repliesCount }})</h4>
+          <div class="reply" *ngFor="let reply of comment.replies">
+            <div class="reply-content">
+              <p>
+                <strong>{{ reply.author }}</strong> |
+                {{ getRelativeTime(reply.createdAt) }}
+              </p>
+              <p>{{ reply.content }}</p>
+              <p>
+                <strong>Likes:</strong> {{ reply.likes }} |
+                <strong>Dislikes:</strong> {{ reply.dislikes }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
