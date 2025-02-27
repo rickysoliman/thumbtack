@@ -15,6 +15,7 @@ import { CommentComponent } from '../comment/comment.component';
 export class CommentsComponent {
   postId: string = '';
   post: Post | undefined = undefined;
+  showCommentForm: boolean = false;
 
   constructor(private route: ActivatedRoute) {}
 
