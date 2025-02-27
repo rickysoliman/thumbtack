@@ -1,4 +1,5 @@
-export interface Comment {
+// calling this interface Reply instead of Comment because Comment is an already existing type
+export interface Reply {
   id: string; // Unique identifier for the comment
   postId: string; // The ID of the post this comment belongs to
   author: string; // The user who created the comment
@@ -9,7 +10,7 @@ export interface Comment {
   repliesCount: number; // Number of replies to this comment
   parentId?: string; // The ID of the parent comment if this is a reply
   content: string; // The content of the comment
-  replies: Comment[]; // Array of replies to this comment
+  replies: Reply[]; // Array of replies to this comment
 }
 
 export interface Post {
@@ -24,7 +25,7 @@ export interface Post {
   likes: number; // Number of likes the post has received
   dislikes: number; // Number of dislikes the post has received
   commentsCount: number; // Number of comments on the post
-  comments: Comment[]; // Array of comments on the post
+  comments: Reply[]; // Array of comments on the post
 }
 
 // dummy data

@@ -1,0 +1,20 @@
+<div [ngClass]="isReply ? 'reply' : 'comment'" *ngIf="comment">
+  <div class="comment-content">
+    <p class="meta">
+      <strong>{{ comment.author }}</strong> |
+      {{ getRelativeTime(comment.createdAt) }}
+    </p>
+    <p class="content">{{ comment.content }}</p>
+    <p class="meta">
+      <strong>Likes:</strong> {{ comment.likes }} | <strong>Dislikes:</strong>
+      {{ comment.dislikes }}
+    </p>
+  </div>
+
+  <!-- Replies Section -->
+  <div class="replies" *ngIf="comment.replies.length">
+    <ng-container *ngFor="let reply of comment.replies">
+      <app-comment [comment]="reply" [isReply]="true"></app-comment>
+    </ng-container>
+  </div>
+</div>

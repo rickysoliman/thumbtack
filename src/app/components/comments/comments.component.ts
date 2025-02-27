@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { dummyPosts, Post } from '../../models/post.model';
 import { PostComponent } from '../post/post.component';
+import { CommentComponent } from '../comment/comment.component';
 
 @Component({
   selector: 'app-comments',
   standalone: true,
-  imports: [CommonModule, PostComponent],
+  imports: [CommonModule, PostComponent, CommentComponent],
   templateUrl: './comments.component.html',
   styleUrl: './comments.component.scss',
 })
