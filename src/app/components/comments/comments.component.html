@@ -1,5 +1,21 @@
 <div class="overall-wrapper" *ngIf="post">
   <div class="post-and-comments-wrapper">
-    <app-post [post]="post"></app-post>
+    <!-- Post -->
+    <div class="post post-comments">
+      <h2 class="post-title">{{ post.title }}</h2>
+      <div class="meta">
+        <p>{{ post.author }} | {{ getRelativeTime(post.createdAt) }}</p>
+      </div>
+      <p class="content">{{ post.content }}</p>
+      <img *ngIf="post.image" [src]="post.image" alt="Post Image" />
+      <div class="meta">
+        <p>
+          <strong>Likes:</strong> {{ post.likes }} | <strong>Dislikes:</strong>
+          {{ post.dislikes }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Comments -->
   </div>
 </div>
