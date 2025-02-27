@@ -1,0 +1,17 @@
+.overall-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .post-and-comments-wrapper {
+    background: var(--primary-white);
+    padding: 0;
+    margin: 0;
+    width: 900px;
+    border-top: none;
+    border-left: 1px solid var(--primary-dark-transparent);
+    border-right: 1px solid var(--primary-dark-transparent);
+    border-bottom: 1px solid var(--primary-dark-transparent);
+  }
+}
