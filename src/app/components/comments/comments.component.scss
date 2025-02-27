@@ -79,7 +79,7 @@
 
   .comment-content {
     margin-top: 5px;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--text-color);
   }
 
@@ -98,5 +98,9 @@
 
   .reply {
     padding: 5px 0;
+  }
+
+  .reply-content {
+    font-size: 16px;
   }
 }
