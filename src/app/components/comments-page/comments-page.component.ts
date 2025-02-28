@@ -4,15 +4,16 @@ import { ActivatedRoute } from '@angular/router';
 import { dummyPosts, Post } from '../../models/post.model';
 import { PostComponent } from '../post/post.component';
 import { CommentComponent } from '../comment/comment.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-comments',
   standalone: true,
-  imports: [CommonModule, PostComponent, CommentComponent],
-  templateUrl: './comments.component.html',
-  styleUrl: './comments.component.scss',
+  imports: [CommonModule, PostComponent, CommentComponent, MatIconModule],
+  templateUrl: './comments-page.component.html',
+  styleUrl: './comments-page.component.scss',
 })
-export class CommentsComponent {
+export class CommentsPageComponent {
   postId: string = '';
   post: Post | undefined = undefined;
   showCommentForm: boolean = false;
