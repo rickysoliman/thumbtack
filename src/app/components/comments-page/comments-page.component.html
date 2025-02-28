@@ -9,6 +9,13 @@
       <p class="content">{{ post.content }}</p>
       <img *ngIf="post.image" [src]="post.image" alt="Post Image" />
       <app-likes-dislikes [postOrComment]="post"></app-likes-dislikes>
+      <button
+        *ngIf="post.comments.length"
+        (click)="showCommentForm = true"
+        class="add-comment-button"
+      >
+        Add Comment
+      </button>
     </div>
 
     <!-- Comments -->
