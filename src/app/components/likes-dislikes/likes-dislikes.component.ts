@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { Post } from '../../models/post.model';
+import { Post, Reply } from '../../models/post.model';
 
 @Component({
   selector: 'app-likes-dislikes',
@@ -10,5 +10,5 @@ import { Post } from '../../models/post.model';
   styleUrl: './likes-dislikes.component.scss',
 })
 export class LikesDislikesComponent {
-  @Input() post!: Post;
+  @Input() postOrComment!: Post | Reply;
 }

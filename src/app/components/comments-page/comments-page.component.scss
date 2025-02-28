@@ -41,17 +41,6 @@
     text-decoration: none;
   }
 
-  .post .meta .likes-dislikes {
-    height: auto;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100px;
-    padding: 10px;
-    border: 1px solid var(--primary-dark-transparent);
-    border-radius: 50px;
-  }
-
   .post img {
     width: 100%;
     height: auto;

@@ -13,7 +13,7 @@
   <p class="content">{{ post.content }}</p>
   <img *ngIf="post.image" [src]="post.image" alt="Post Image" />
   <div class="meta">
-    <app-likes-dislikes [post]="post"></app-likes-dislikes>
+    <app-likes-dislikes [postOrComment]="post"></app-likes-dislikes>
     <p><strong>Comments:</strong> {{ post.commentsCount }}</p>
   </div>
 </div>

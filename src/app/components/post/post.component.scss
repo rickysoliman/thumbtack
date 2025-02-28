@@ -39,25 +39,6 @@
   color: var(--text-color-meta);
 }
 
-.post .meta .likes-dislikes {
-  font-size: 13px;
-  color: var(--text-color-meta);
-  height: auto;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100px;
-  padding: 10px;
-  border: 1px solid var(--primary-dark-transparent);
-  border-radius: 50px;
-  margin-bottom: 10px;
-}
-
-.post .meta .likes-dislikes span {
-  display: flex;
-  align-items: center;
-}
-
 .post .meta mat-icon {
   font-size: 18px;
   height: auto;

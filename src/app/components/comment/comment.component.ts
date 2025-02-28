@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Reply } from '../../models/post.model';
-import { MatIconModule } from '@angular/material/icon';
+import { LikesDislikesComponent } from '../likes-dislikes/likes-dislikes.component';
 
 @Component({
   selector: 'app-comment',
   standalone: true,
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule, LikesDislikesComponent],
   templateUrl: './comment.component.html',
   styleUrl: './comment.component.scss',
 })

@@ -4,12 +4,17 @@ import { ActivatedRoute } from '@angular/router';
 import { dummyPosts, Post } from '../../models/post.model';
 import { PostComponent } from '../post/post.component';
 import { CommentComponent } from '../comment/comment.component';
-import { MatIconModule } from '@angular/material/icon';
+import { LikesDislikesComponent } from '../likes-dislikes/likes-dislikes.component';
 
 @Component({
   selector: 'app-comments',
   standalone: true,
-  imports: [CommonModule, PostComponent, CommentComponent, MatIconModule],
+  imports: [
+    CommonModule,
+    PostComponent,
+    CommentComponent,
+    LikesDislikesComponent,
+  ],
   templateUrl: './comments-page.component.html',
   styleUrl: './comments-page.component.scss',
 })
