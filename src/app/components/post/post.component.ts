@@ -2,12 +2,18 @@ import { Component, Input } from '@angular/core';
 import { Post } from '../../models/post.model';
 import { DatePipe, NgIf } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
+import { LikesDislikesComponent } from '../likes-dislikes/likes-dislikes.component';
 
 @Component({
   selector: 'app-post',
   standalone: true,
-  imports: [NgIf, DatePipe, RouterLink, RouterLinkActive, MatIconModule],
+  imports: [
+    NgIf,
+    DatePipe,
+    RouterLink,
+    RouterLinkActive,
+    LikesDislikesComponent,
+  ],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss',
 })
