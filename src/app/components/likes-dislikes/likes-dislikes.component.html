@@ -1,4 +1,19 @@
 <div class="likes-dislikes">
-  <span><mat-icon>thumb_up</mat-icon> {{ postOrComment.likes }}</span> |
-  <span><mat-icon>thumb_down</mat-icon> {{ postOrComment.dislikes }}</span>
+  <span
+    ><mat-icon
+      (click)="handleThumbClick(true)"
+      [ngClass]="thumbsUpClicked ? 'clicked' : 'not-clicked'"
+      >thumb_up</mat-icon
+    >
+    {{ postOrComment.likes }}</span
+  >
+  |
+  <span
+    ><mat-icon
+      (click)="handleThumbClick(false)"
+      [ngClass]="thumbsDownClicked ? 'clicked' : 'not-clicked'"
+      >thumb_down</mat-icon
+    >
+    {{ postOrComment.dislikes }}</span
+  >
 </div>

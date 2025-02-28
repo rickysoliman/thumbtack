@@ -17,12 +17,24 @@
   align-items: center;
 }
 
-.likes-dislikes mat-icon {
+.likes-dislikes .not-clicked {
   font-size: 18px;
   height: auto;
   transition: color 0.2s;
+  color: var(--text-color-meta);
   &:hover {
-    color: var(--primary-light);
+    color: var(--primary-light-hover);
+    cursor: pointer;
+  }
+}
+
+.likes-dislikes .clicked {
+  font-size: 18px;
+  height: auto;
+  transition: color 0.2s;
+  color: var(--primary-light);
+  &:hover {
+    color: var(--primary-light-hover);
     cursor: pointer;
   }
 }
