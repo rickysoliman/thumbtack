@@ -1,0 +1,25 @@
+.text-box-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 200px;
+  margin: 10px;
+
+  .text-area {
+    height: 100%;
+    padding: 10px;
+    border: 1px solid var(--primary-dark-transparent);
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none;
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: start;
+
+    button {
+      margin-right: 10px;
+    }
+  }
+}

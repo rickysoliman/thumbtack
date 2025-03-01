@@ -23,6 +23,8 @@ $custom-theme: mat.define-light-theme(
   --primary-white: #fcfcfa;
   --primary-light: #07969e;
   --primary-light-hover: #067e86;
+  --secondary-light: #e0e0e0;
+  --secondary-light-hover: #cfcfcf;
   --primary-dark: #07234b;
   --primary-gray: #0000000d;
   --primary-dark-transparent: #07234b40;
@@ -52,7 +54,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   color: var(--text-color);
 
-  button {
+  .primary-button {
     background-color: var(--primary-light);
     color: var(--primary-white);
     padding: 10px 20px;
@@ -64,6 +66,21 @@ body {
     margin: 10px 0;
     &:hover {
       background-color: var(--primary-light-hover);
+    }
+  }
+
+  .secondary-button {
+    background-color: var(--secondary-light);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0ss;
+    margin: 10px 0;
+    &:hover {
+      background-color: var(--secondary-light-hover);
     }
   }
 }

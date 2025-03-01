@@ -5,6 +5,7 @@ import { dummyPosts, Post } from '../../models/post.model';
 import { PostComponent } from '../post/post.component';
 import { CommentComponent } from '../comment/comment.component';
 import { LikesDislikesComponent } from '../likes-dislikes/likes-dislikes.component';
+import { TextBoxComponent } from '../text-box/text-box.component';
 
 @Component({
   selector: 'app-comments',
@@ -14,6 +15,7 @@ import { LikesDislikesComponent } from '../likes-dislikes/likes-dislikes.compone
     PostComponent,
     CommentComponent,
     LikesDislikesComponent,
+    TextBoxComponent,
   ],
   templateUrl: './comments-page.component.html',
   styleUrl: './comments-page.component.scss',
