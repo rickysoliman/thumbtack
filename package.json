@@ -1,5 +1,5 @@
 {
-  "name": "reddit-like-app",
+  "name": "thumbtack",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:reddit-like-app": "node dist/reddit-like-app/server/server.mjs"
+    "serve:ssr:thumbtack": "node dist/thumbtack/server/server.mjs"
   },
   "private": true,
   "dependencies": {
