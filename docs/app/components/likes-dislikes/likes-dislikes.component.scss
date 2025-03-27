@@ -1,0 +1,40 @@
+.likes-dislikes {
+  font-size: 13px;
+  color: var(--text-color-meta);
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100px;
+  padding: 10px;
+  border: 1px solid var(--primary-dark-transparent);
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.likes-dislikes span {
+  display: flex;
+  align-items: center;
+}
+
+.likes-dislikes .not-clicked {
+  font-size: 18px;
+  height: auto;
+  transition: color 0.2s;
+  color: var(--text-color-meta);
+  &:hover {
+    color: var(--primary-light-hover);
+    cursor: pointer;
+  }
+}
+
+.likes-dislikes .clicked {
+  font-size: 18px;
+  height: auto;
+  transition: color 0.2s;
+  color: var(--primary-light);
+  &:hover {
+    color: var(--primary-light-hover);
+    cursor: pointer;
+  }
+}

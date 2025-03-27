@@ -1,0 +1,91 @@
+@use "@angular/material" as mat;
+
+$custom-primary: mat.define-palette(
+  mat.$cyan-palette,
+  600
+); // #07969e as primary
+$custom-accent: mat.define-palette(
+  mat.$blue-grey-palette,
+  900
+); // #07234b as accent
+$custom-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $custom-primary,
+      accent: $custom-accent,
+    ),
+  )
+);
+
+@include mat.all-component-themes($custom-theme);
+
+:root {
+  --primary-white: #fcfcfa;
+  --primary-light: #07969e;
+  --primary-light-hover: #067e86;
+  --secondary-light: #e0e0e0;
+  --secondary-light-hover: #cfcfcf;
+  --primary-dark: #07234b;
+  --primary-gray: #0000000d;
+  --primary-dark-transparent: #07234b40;
+  --background-gradient-start: #eaeaea;
+  --background-gradient-middle: #efefef;
+  --background-gradient-end: #eaeaea;
+  --text-color: #000;
+  --text-color-meta: #5c6c749e;
+}
+
+app-root {
+  display: block;
+  min-height: 100vh;
+  overflow: visible;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  background: linear-gradient(
+    to right,
+    var(--background-gradient-start) 0%,
+    var(--background-gradient-middle) 50%,
+    var(--background-gradient-end) 100%
+  );
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: var(--text-color);
+
+  .primary-button {
+    background-color: var(--primary-light);
+    color: var(--primary-white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0ss;
+    margin: 10px 0;
+    &:hover {
+      background-color: var(--primary-light-hover);
+    }
+  }
+
+  .secondary-button {
+    background-color: var(--secondary-light);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0ss;
+    margin: 10px 0;
+    &:hover {
+      background-color: var(--secondary-light-hover);
+    }
+  }
+}
+
+html,
+body {
+  height: 100%;
+}

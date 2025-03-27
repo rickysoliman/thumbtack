@@ -1,0 +1,117 @@
+.overall-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+
+  .post-and-comments-wrapper {
+    background: var(--primary-white);
+    padding: 0;
+    margin: 0;
+    width: 900px;
+    border-top: none;
+    border-left: 1px solid var(--primary-dark-transparent);
+    border-right: 1px solid var(--primary-dark-transparent);
+    border-bottom: 1px solid var(--primary-dark-transparent);
+    flex-grow: 1;
+  }
+
+  .post {
+    cursor: default;
+    transition: none;
+    background-color: transparent;
+    padding: 0 15px;
+  }
+
+  .post .post-title {
+    font-size: 1.5em;
+    color: var(--primary-dark);
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .post .post-board {
+    color: var(--text-color);
+  }
+
+  .post .post-title:hover,
+  .post .post-board:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .post img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  /* Comments Section */
+  .comments-section {
+    padding: 15px;
+    border-top: 1px solid var(--primary-dark-transparent);
+  }
+
+  .comment {
+    padding: 10px;
+    border-bottom: 1px solid var(--primary-dark-transparent);
+  }
+
+  .comment:last-child {
+    border-bottom: none;
+  }
+
+  .comment-author {
+    font-weight: bold;
+    color: var(--primary-dark);
+  }
+
+  .comment-content {
+    margin-top: 5px;
+    font-size: 16px;
+    color: var(--text-color);
+  }
+
+  .comment-likes {
+    font-size: 12px;
+    color: var(--text-color-meta);
+    margin-top: 5px;
+  }
+
+  /* Replies */
+  .replies {
+    margin-left: 20px;
+    padding-left: 10px;
+    border-left: 2px solid var(--primary-dark-transparent);
+  }
+
+  .reply {
+    padding: 5px 0;
+  }
+
+  .reply-content {
+    font-size: 16px;
+  }
+
+  /* No Comments */
+  .no-comments {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 16px;
+    color: var(--text-color);
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    h3 {
+      margin: none;
+    }
+  }
+}

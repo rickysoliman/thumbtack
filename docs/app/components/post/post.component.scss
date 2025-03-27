@@ -1,0 +1,73 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 10px;
+  width: auto;
+  height: 100%;
+  font-family: "Trebuchet MS", sans-serif;
+  // cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  &:hover {
+    color: var(--primary-light);
+    background-color: var(--primary-gray);
+  }
+}
+
+.post-title {
+  font-size: 1.5em;
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.post-board {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.post-title:hover,
+.post-board:hover {
+  color: var(--primary-light);
+  text-decoration: underline;
+}
+
+.post .meta p {
+  font-size: 13px;
+  color: var(--text-color-meta);
+}
+
+.post .meta mat-icon {
+  font-size: 18px;
+  height: auto;
+  transition: color 0.2s;
+  &:hover {
+    color: var(--primary-light);
+    cursor: pointer;
+  }
+}
+
+.post p {
+  color: var(--text-color);
+  margin: 0;
+}
+
+.post img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.post .likes {
+  color: green;
+  font-weight: bold;
+}
+
+.post .dislikes {
+  color: red;
+  font-weight: bold;
+}

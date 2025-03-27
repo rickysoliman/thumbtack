@@ -1,0 +1,20 @@
+<ng-container *ngIf="!boardDoesNotExist; else boardNotFound">
+  <div class="board">
+    <div
+      *ngFor="let post of posts"
+      appearance="outlined"
+      class="post-container"
+    >
+      <app-post [post]="post" [isHomepage]="false"></app-post>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #boardNotFound>
+  <div class="board">
+    <div class="board-not-found">
+      <h2>Board Not Found</h2>
+      <p>The board you are looking for does not exist.</p>
+    </div>
+  </div>
+</ng-template>
