@@ -18,12 +18,7 @@
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/assets/thumbtack-icon.jpg",
-              "src/assets/thumbtack-name.jpg"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/custom-theme.scss", "src/styles.scss"],
             "scripts": []
           },
