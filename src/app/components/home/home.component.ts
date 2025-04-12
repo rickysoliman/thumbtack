@@ -25,6 +25,6 @@ export class HomeComponent {
   }
 
   fetchPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>('https://www.reddit.com/.json');
+    return this.http.get<Post[]>('https://www.reddit.com/r/popular/.json');
   }
 }
