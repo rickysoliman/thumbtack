@@ -25,7 +25,7 @@ export class PostComponent {
     console.log({ post: this.post });
   }
 
-  getRelativeTime(date: Date): string {
+  getRelativeTime(date: number): string {
     const now = new Date();
     const postDate = new Date(date);
     const diffInSeconds = Math.floor(
