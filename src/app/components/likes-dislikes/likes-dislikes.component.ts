@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './likes-dislikes.component.scss',
 })
 export class LikesDislikesComponent {
-  @Input() postOrComment!: Post | Reply;
+  @Input() postOrComment!: any;
 
   thumbsUpClicked: boolean = false;
   thumbsDownClicked: boolean = false;

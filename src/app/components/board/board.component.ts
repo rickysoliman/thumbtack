@@ -21,7 +21,9 @@ export class BoardComponent {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.boardId = params['board'];
-      this.posts = dummyPosts.filter((post) => post.board === this.boardId);
+      this.posts = dummyPosts.filter(
+        (post: any) => post.board === this.boardId
+      );
       if (!this.posts.length) {
         this.boardDoesNotExist = true;
       }

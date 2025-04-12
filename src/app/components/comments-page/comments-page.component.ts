@@ -22,7 +22,7 @@ import { TextBoxComponent } from '../text-box/text-box.component';
 })
 export class CommentsPageComponent {
   postId: string = '';
-  post: Post | undefined = undefined;
+  post: any | undefined = undefined;
   showCommentForm: boolean = false;
 
   constructor(private route: ActivatedRoute) {}
@@ -30,7 +30,7 @@ export class CommentsPageComponent {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.postId = params['id'];
-      this.post = dummyPosts.find((post) => post.id === this.postId);
+      this.post = dummyPosts.find((post: any) => post.id === this.postId);
     });
   }
 

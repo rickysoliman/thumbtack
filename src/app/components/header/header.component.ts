@@ -38,10 +38,10 @@ export class HeaderComponent {
     this.searchControl.valueChanges.subscribe((val) => {
       if (val && val.length > 2) {
         this.options = dummyPosts
-          .filter((post) =>
+          .filter((post: any) =>
             post.title.toLowerCase().includes(val.toLowerCase())
           )
-          .map((post) => {
+          .map((post: any) => {
             return { title: post.title, image: post.image || null };
           });
       } else {

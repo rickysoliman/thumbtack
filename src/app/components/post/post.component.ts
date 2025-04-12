@@ -21,6 +21,10 @@ export class PostComponent {
   @Input() post!: Post;
   @Input() isHomepage: boolean = true;
 
+  ngOnInit(): void {
+    console.log({ post: this.post });
+  }
+
   getRelativeTime(date: Date): string {
     const now = new Date();
     const postDate = new Date(date);
