@@ -20,11 +20,11 @@
   </p>
 
   <!-- Image preview (if available and not a video) -->
-  <!-- <img
+  <img
     *ngIf="post.preview?.images?.length && !post.is_video"
-    [src]="post.preview.images[0].source.url | safeUrl"
+    [src]="decodeHtmlEntities(post.preview!.images![0].source.url)"
     alt="Post Image"
-  /> -->
+  />
 
   <!-- Reddit hosted video -->
   <video

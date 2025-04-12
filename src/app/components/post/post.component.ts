@@ -44,4 +44,10 @@ export class PostComponent {
       return `${Math.floor(diffInSeconds / 86400)} days ago`;
     }
   }
+
+  decodeHtmlEntities(str: string): string {
+    const txt = document.createElement('textarea');
+    txt.innerHTML = str;
+    return txt.value;
+  }
 }
