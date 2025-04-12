@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './likes-dislikes.component.scss',
 })
 export class LikesDislikesComponent {
-  @Input() postOrComment!: any;
+  @Input() postOrComment!: Post | Reply;
 
   thumbsUpClicked: boolean = false;
   thumbsDownClicked: boolean = false;
@@ -20,27 +20,27 @@ export class LikesDislikesComponent {
     if (isThumbsUp) {
       if (this.thumbsUpClicked) {
         this.thumbsUpClicked = false;
-        this.postOrComment.likes -= 1;
+        this.postOrComment.ups -= 1;
       } else {
         this.thumbsUpClicked = true;
-        this.postOrComment.likes += 1;
+        this.postOrComment.ups += 1;
 
         if (this.thumbsDownClicked) {
           this.thumbsDownClicked = false;
-          this.postOrComment.dislikes -= 1;
+          this.postOrComment.downs -= 1;
         }
       }
     } else {
       if (this.thumbsDownClicked) {
         this.thumbsDownClicked = false;
-        this.postOrComment.dislikes -= 1;
+        this.postOrComment.downs -= 1;
       } else {
         this.thumbsDownClicked = true;
-        this.postOrComment.dislikes += 1;
+        this.postOrComment.downs += 1;
 
         if (this.thumbsUpClicked) {
           this.thumbsUpClicked = false;
-          this.postOrComment.likes -= 1;
+          this.postOrComment.ups -= 1;
         }
       }
     }

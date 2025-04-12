@@ -5,8 +5,8 @@ export interface Reply {
   author: string; // The user who created the comment
   createdAt: Date; // Date when the comment was created
   updatedAt: Date; // Date when the comment was last updated
-  likes: number; // Number of likes the comment has received
-  dislikes: number; // Number of dislikes the comment has received
+  ups: number; // Number of likes the comment has received
+  downs: number; // Number of dislikes the comment has received
   repliesCount: number; // Number of replies to this comment
   parentId?: string; // The ID of the parent comment if this is a reply
   content: string; // The content of the comment
