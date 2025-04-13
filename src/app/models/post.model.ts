@@ -1,16 +1,110 @@
 // calling this interface Reply instead of Comment because Comment is an already existing type
 export interface Reply {
-  id: string; // Unique identifier for the comment
-  postId: string; // The ID of the post this comment belongs to
-  author: string; // The user who created the comment
-  createdAt: Date; // Date when the comment was created
-  updatedAt: Date; // Date when the comment was last updated
-  ups: number; // Number of likes the comment has received
-  downs: number; // Number of dislikes the comment has received
-  repliesCount: number; // Number of replies to this comment
-  parentId?: string; // The ID of the parent comment if this is a reply
-  content: string; // The content of the comment
-  replies: Reply[]; // Array of replies to this comment
+  id: string;
+  name: string;
+  postId: string; // Maps to "link_id"
+  parentId?: string; // Maps to "parent_id"
+  subredditId: string;
+  subreddit: string;
+  subredditNamePrefixed: string;
+  subredditType: string;
+  author: string;
+  authorFullname: string;
+  authorFlairText?: string | null;
+  authorFlairCssClass?: string | null;
+  authorFlairType: string;
+  authorFlairRichtext: any[];
+  authorFlairBackgroundColor?: string | null;
+  authorFlairTextColor?: string | null;
+  authorPatreonFlair: boolean;
+  authorPremium: boolean;
+  authorIsBlocked: boolean;
+  isSubmitter: boolean;
+  data: any;
+
+  body: string;
+  bodyHtml: string;
+  content: string; // Duplicate of `body` for your app's usage
+  ups: number;
+  downs: number;
+  score: number;
+  scoreHidden: boolean;
+  controversiality: number;
+  gilded: number;
+  gildings: Record<string, number>;
+  allAwardings: any[];
+  totalAwardsReceived: number;
+  topAwardedType?: string | null;
+  associatedAward?: any | null;
+
+  created: number;
+  created_utc: number;
+  createdAt: Date; // Converted from `createdUtc`
+  updatedAt: Date; // Same as `createdAt` if not edited
+  edited: boolean | number;
+  archived: boolean;
+  locked: boolean;
+  stickied: boolean;
+  canModPost: boolean;
+  canGild: boolean;
+  sendReplies: boolean;
+  unrepliableReason?: string | null;
+
+  saved: boolean;
+  likes?: boolean | null;
+  distinguished?: string | null;
+  collapsed: boolean;
+  collapsedReason?: string | null;
+  collapsedReasonCode?: string | null;
+  collapsedBecauseCrowdControl?: string | null;
+
+  removalReason?: string | null;
+  modReasonBy?: string | null;
+  modReasonTitle?: string | null;
+  modNote?: string | null;
+  approvedBy?: string | null;
+  bannedBy?: string | null;
+  bannedAtUtc?: number | null;
+  approvedAtUtc?: number | null;
+  modReports: any[];
+  userReports: any[];
+  reportReasons?: any;
+  treatmentTags: string[];
+
+  noFollow: boolean;
+  permalink: string;
+  commentType?: string | null;
+
+  replies: Replies; // Recursive definition
+  repliesCount: number; // Custom derived count
+  mediaMetadata?: Record<string, MediaMetadataItem>;
+
+  // Additional data if needed later
+  awarders: any[];
+}
+
+export interface Replies {
+  data: {
+    children: Reply[];
+  };
+  kind: string;
+}
+
+export interface MediaMetadataItem {
+  status: string;
+  e: string;
+  m: string;
+  p: {
+    y: number;
+    x: number;
+    u: string;
+  }[];
+  s: {
+    y: number;
+    x: number;
+    u: string;
+  };
+  id: string;
 }
 
 export interface Post {

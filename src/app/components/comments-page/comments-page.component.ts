@@ -39,7 +39,9 @@ export class CommentsPageComponent {
       )
       .subscribe((resp: any) => {
         this.post = resp[0].data.children[0].data;
-        this.comments = resp[1].data.children;
+        this.comments = resp[1].data.children.map(
+          (comment: any) => comment.data
+        );
       });
   }
 

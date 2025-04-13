@@ -42,14 +42,14 @@
       </div>
     </div>
 
-    <!-- <div class="comments-section" *ngIf="post.comments?.length">
+    <div class="comments-section" *ngIf="comments?.length">
       <h3>Comments ({{ post.num_comments }})</h3>
-      <ng-container *ngFor="let comment of post.comments">
+      <ng-container *ngFor="let comment of comments">
         <app-comment [comment]="comment"></app-comment>
       </ng-container>
     </div>
 
-    <div class="no-comments" *ngIf="!post.comments?.length">
+    <div class="no-comments" *ngIf="!comments.length">
       <h3>No comments yet</h3>
       <p>Be the first to comment!</p>
       <button
@@ -59,6 +59,5 @@
         Add Comment
       </button>
     </div>
-    -->
   </div>
 </div>

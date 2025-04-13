@@ -14,7 +14,13 @@ export class CommentComponent {
   @Input() comment!: Reply;
   @Input() isReply?: boolean;
 
-  getRelativeTime(date: Date): string {
+  ngOnInit(): void {
+    if (this.isReply) {
+      this.comment = this.comment.data;
+    }
+  }
+
+  getRelativeTime(date: number): string {
     const now = new Date();
     const postDate = new Date(date);
     const diffInSeconds = Math.floor(
