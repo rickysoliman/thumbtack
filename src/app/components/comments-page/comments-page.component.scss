@@ -18,6 +18,9 @@
   }
 
   .post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     cursor: default;
     transition: none;
     background-color: transparent;
@@ -47,6 +50,11 @@
     object-fit: cover;
     border-radius: 8px;
     margin-top: 10px;
+  }
+
+  .post .meta p {
+    font-size: 13px;
+    color: var(--text-color-meta);
   }
 
   /* Comments Section */

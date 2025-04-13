@@ -2,36 +2,54 @@
   <div class="post-and-comments-wrapper">
     <!-- Post -->
     <div class="post">
-      <h2 class="post-title">{{ post.title }}</h2>
+      <!-- Subreddit name (e.g., r/funny) -->
+      <a class="post-board"> b/{{ post.subreddit }} </a>
+
+      <!-- Post title -->
+      <a class="post-title">
+        {{ post.title }}
+      </a>
+
+      <!-- Author and relative time -->
       <div class="meta">
-        <p>{{ post.author }} | {{ getRelativeTime(post.createdAt) }}</p>
+        <p>
+          {{ post.author }} | {{ getRelativeTime(post.created_utc * 1000) }}
+        </p>
       </div>
-      <p class="content">{{ post.content }}</p>
-      <img *ngIf="post.image" [src]="post.image" alt="Post Image" />
-      <app-likes-dislikes [postOrComment]="post"></app-likes-dislikes>
-      <button
-        *ngIf="post.comments.length && !showCommentForm"
-        (click)="showCommentForm = true"
-        class="add-comment-button primary-button"
-      >
-        Add Comment
-      </button>
+
+      <!-- Self text (if exists) -->
+      <p *ngIf="post.selftext" class="content">
+        {{ post.selftext }}
+      </p>
+
+      <!-- Image preview (if available and not a video) -->
+      <img
+        *ngIf="post.preview?.images?.length && !post.is_video"
+        [src]="decodeHtmlEntities(post.preview!.images![0].source.url)"
+        alt="Post Image"
+      />
+
+      <!-- Reddit hosted video -->
+      <video
+        *ngIf="post.is_video && post.media?.reddit_video"
+        [src]="post.media.reddit_video?.fallback_url"
+        controls
+      ></video>
+
+      <!-- Likes and Comments -->
+      <div class="meta">
+        <app-likes-dislikes [postOrComment]="post"></app-likes-dislikes>
+      </div>
     </div>
 
-    <ng-container *ngIf="showCommentForm">
-      <app-text-box></app-text-box>
-    </ng-container>
-
-    <!-- Comments -->
-    <div class="comments-section" *ngIf="post.comments.length">
-      <h3>Comments ({{ post.commentsCount }})</h3>
+    <!-- <div class="comments-section" *ngIf="post.comments?.length">
+      <h3>Comments ({{ post.num_comments }})</h3>
       <ng-container *ngFor="let comment of post.comments">
         <app-comment [comment]="comment"></app-comment>
       </ng-container>
     </div>
 
-    <!-- No Comments -->
-    <div class="no-comments" *ngIf="!post.comments.length">
+    <div class="no-comments" *ngIf="!post.comments?.length">
       <h3>No comments yet</h3>
       <p>Be the first to comment!</p>
       <button
@@ -41,5 +59,6 @@
         Add Comment
       </button>
     </div>
+    -->
   </div>
 </div>
