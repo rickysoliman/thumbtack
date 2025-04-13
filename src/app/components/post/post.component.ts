@@ -3,6 +3,7 @@ import { Post } from '../../models/post.model';
 import { DatePipe, NgIf } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { LikesDislikesComponent } from '../likes-dislikes/likes-dislikes.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -21,9 +22,7 @@ export class PostComponent {
   @Input() post!: Post;
   @Input() isHomepage: boolean = true;
 
-  ngOnInit(): void {
-    console.log({ post: this.post });
-  }
+  constructor(private router: Router) {}
 
   getRelativeTime(date: number): string {
     const now = new Date();
@@ -49,5 +48,9 @@ export class PostComponent {
     const txt = document.createElement('textarea');
     txt.innerHTML = str;
     return txt.value;
+  }
+
+  handlePostClick(post: Post): void {
+    this.router.navigate(['b', post.subreddit, 'comments', post.id]);
   }
 }

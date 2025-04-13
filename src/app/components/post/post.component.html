@@ -5,7 +5,7 @@
   </a>
 
   <!-- Post title -->
-  <a [routerLink]="[post.permalink]" class="post-title">
+  <a (click)="handlePostClick(post)" class="post-title">
     {{ post.title }}
   </a>
 
