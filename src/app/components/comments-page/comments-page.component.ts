@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { dummyPosts, Post } from '../../models/post.model';
+import { Post } from '../../models/post.model';
 import { PostComponent } from '../post/post.component';
 import { CommentComponent } from '../comment/comment.component';
 import { LikesDislikesComponent } from '../likes-dislikes/likes-dislikes.component';
@@ -30,7 +30,7 @@ export class CommentsPageComponent {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.postId = params['id'];
-      this.post = dummyPosts.find((post: any) => post.id === this.postId);
+      // this.post = dummyPosts.find((post: any) => post.id === this.postId);
     });
   }
 

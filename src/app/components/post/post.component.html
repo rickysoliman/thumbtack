@@ -1,6 +1,6 @@
 <div class="post">
   <!-- Subreddit name (e.g., r/funny) -->
-  <a *ngIf="isHomepage" [routerLink]="[post.permalink]" class="post-board">
+  <a *ngIf="isHomepage" [routerLink]="['b', post.subreddit]" class="post-board">
     b/{{ post.subreddit }}
   </a>
 
@@ -36,7 +36,6 @@
   <!-- Likes and Comments -->
   <div class="meta">
     <app-likes-dislikes [postOrComment]="post"></app-likes-dislikes>
-    <p><strong>Upvotes:</strong> {{ post.ups }}</p>
     <p><strong>Comments:</strong> {{ post.num_comments }}</p>
   </div>
 </div>

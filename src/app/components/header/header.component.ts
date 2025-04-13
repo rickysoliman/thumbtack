@@ -6,7 +6,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { dummyPosts } from '../../models/post.model';
 
 interface Option {
   title: string;
@@ -35,19 +34,19 @@ export class HeaderComponent {
   isShrunk: boolean = false;
 
   ngOnInit(): void {
-    this.searchControl.valueChanges.subscribe((val) => {
-      if (val && val.length > 2) {
-        this.options = dummyPosts
-          .filter((post: any) =>
-            post.title.toLowerCase().includes(val.toLowerCase())
-          )
-          .map((post: any) => {
-            return { title: post.title, image: post.image || null };
-          });
-      } else {
-        this.options = [];
-      }
-    });
+    // this.searchControl.valueChanges.subscribe((val) => {
+    //   if (val && val.length > 2) {
+    //     this.options = dummyPosts
+    //       .filter((post: any) =>
+    //         post.title.toLowerCase().includes(val.toLowerCase())
+    //       )
+    //       .map((post: any) => {
+    //         return { title: post.title, image: post.image || null };
+    //       });
+    //   } else {
+    //     this.options = [];
+    //   }
+    // });
   }
 
   @HostListener('window:scroll', [])
