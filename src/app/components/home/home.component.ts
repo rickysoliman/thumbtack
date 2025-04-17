@@ -4,23 +4,25 @@ import { Post } from '../../models/post.model';
 import { PostComponent } from '../post/post.component';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, PostComponent],
+  imports: [CommonModule, PostComponent, MatProgressSpinnerModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
   posts: Post[] = [];
+  isLoading: boolean = true;
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
     this.fetchPosts().subscribe((resp: any) => {
       this.posts = resp.data.children.map((post: any) => post.data);
-      console.log({ posts: this.posts });
+      this.isLoading = false;
     });
   }
 

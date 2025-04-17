@@ -1,4 +1,8 @@
-<div class="home">
+<div class="loading" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="home" *ngIf="!isLoading">
   <div *ngFor="let post of posts" appearance="outlined" class="post-container">
     <app-post [post]="post"></app-post>
   </div>
