@@ -1,63 +1,69 @@
-<div class="overall-wrapper" *ngIf="post">
-  <div class="post-and-comments-wrapper">
-    <!-- Post -->
-    <div class="post">
-      <!-- Subreddit name (e.g., r/funny) -->
-      <a class="post-board"> b/{{ post.subreddit }} </a>
+<div class="loading" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
 
-      <!-- Post title -->
-      <a class="post-title">
-        {{ post.title }}
-      </a>
+<ng-container *ngIf="!isLoading">
+  <div class="overall-wrapper" *ngIf="post">
+    <div class="post-and-comments-wrapper">
+      <!-- Post -->
+      <div class="post">
+        <!-- Subreddit name (e.g., r/funny) -->
+        <a class="post-board"> b/{{ post.subreddit }} </a>
 
-      <!-- Author and relative time -->
-      <div class="meta">
-        <p>
-          {{ post.author }} | {{ getRelativeTime(post.created_utc * 1000) }}
+        <!-- Post title -->
+        <a class="post-title">
+          {{ post.title }}
+        </a>
+
+        <!-- Author and relative time -->
+        <div class="meta">
+          <p>
+            {{ post.author }} | {{ getRelativeTime(post.created_utc * 1000) }}
+          </p>
+        </div>
+
+        <!-- Self text (if exists) -->
+        <p *ngIf="post.selftext" class="content">
+          {{ post.selftext }}
         </p>
+
+        <!-- Image preview (if available and not a video) -->
+        <img
+          *ngIf="post.preview?.images?.length && !post.is_video"
+          [src]="decodeHtmlEntities(post.preview!.images![0].source.url)"
+          alt="Post Image"
+        />
+
+        <!-- Reddit hosted video -->
+        <video
+          *ngIf="post.is_video && post.media?.reddit_video"
+          [src]="post.media.reddit_video?.fallback_url"
+          controls
+        ></video>
+
+        <!-- Likes and Comments -->
+        <div class="meta">
+          <app-likes-dislikes [postOrComment]="post"></app-likes-dislikes>
+        </div>
       </div>
 
-      <!-- Self text (if exists) -->
-      <p *ngIf="post.selftext" class="content">
-        {{ post.selftext }}
-      </p>
-
-      <!-- Image preview (if available and not a video) -->
-      <img
-        *ngIf="post.preview?.images?.length && !post.is_video"
-        [src]="decodeHtmlEntities(post.preview!.images![0].source.url)"
-        alt="Post Image"
-      />
-
-      <!-- Reddit hosted video -->
-      <video
-        *ngIf="post.is_video && post.media?.reddit_video"
-        [src]="post.media.reddit_video?.fallback_url"
-        controls
-      ></video>
-
-      <!-- Likes and Comments -->
-      <div class="meta">
-        <app-likes-dislikes [postOrComment]="post"></app-likes-dislikes>
+      <div class="comments-section" *ngIf="comments?.length">
+        <h3>Comments ({{ post.num_comments }})</h3>
+        <ng-container *ngFor="let comment of comments">
+          <app-comment [comment]="comment"></app-comment>
+        </ng-container>
       </div>
-    </div>
 
-    <div class="comments-section" *ngIf="comments?.length">
-      <h3>Comments ({{ post.num_comments }})</h3>
-      <ng-container *ngFor="let comment of comments">
-        <app-comment [comment]="comment"></app-comment>
-      </ng-container>
-    </div>
-
-    <div class="no-comments" *ngIf="!comments.length">
-      <h3>No comments yet</h3>
-      <p>Be the first to comment!</p>
-      <button
-        (click)="showCommentForm = true"
-        class="add-comment-button primary-button"
-      >
-        Add Comment
-      </button>
+      <div class="no-comments" *ngIf="!comments.length">
+        <h3>No comments yet</h3>
+        <p>Be the first to comment!</p>
+        <button
+          (click)="showCommentForm = true"
+          class="add-comment-button primary-button"
+        >
+          Add Comment
+        </button>
+      </div>
     </div>
   </div>
-</div>
+</ng-container>

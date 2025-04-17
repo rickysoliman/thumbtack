@@ -8,6 +8,7 @@ import { TextBoxComponent } from '../text-box/text-box.component';
 import { map, Observable, switchMap, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../../models/post.model';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-comments-page',
@@ -18,6 +19,7 @@ import { Post } from '../../models/post.model';
     CommentComponent,
     LikesDislikesComponent,
     TextBoxComponent,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './comments-page.component.html',
   styleUrl: './comments-page.component.scss',
@@ -27,6 +29,7 @@ export class CommentsPageComponent {
   post: any | undefined = undefined;
   comments: any[] = [];
   showCommentForm: boolean = false;
+  isLoading: boolean = true;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -42,6 +45,7 @@ export class CommentsPageComponent {
         this.comments = resp[1].data.children.map(
           (comment: any) => comment.data
         );
+        this.isLoading = false;
       });
   }
 
