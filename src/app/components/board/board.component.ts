@@ -5,11 +5,12 @@ import { PostComponent } from '../post/post.component';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable, switchMap, tap } from 'rxjs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [CommonModule, PostComponent],
+  imports: [CommonModule, PostComponent, MatProgressSpinnerModule],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss',
 })
@@ -17,6 +18,7 @@ export class BoardComponent {
   posts: Post[] = [];
   boardId: string = '';
   boardDoesNotExist: boolean = false;
+  isLoading: boolean = true;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -29,6 +31,7 @@ export class BoardComponent {
       )
       .subscribe((posts: any) => {
         this.posts = posts.data.children.map((post: any) => post.data);
+        this.isLoading = false;
       });
   }
 
