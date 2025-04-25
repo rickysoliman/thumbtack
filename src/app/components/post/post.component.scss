@@ -8,16 +8,17 @@
   font-family: "Trebuchet MS", sans-serif;
   text-decoration: none;
   color: inherit;
+  background-color: var(--secondary-dark);
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
   &:hover {
     color: var(--primary-light);
-    background-color: var(--primary-gray);
+    background-color: var(--secondary-dark-hover);
   }
 }
 
 .post-title {
   font-size: 1.5em;
-  color: var(--primary-dark);
+  color: var(text-color);
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;

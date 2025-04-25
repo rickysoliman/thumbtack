@@ -1,14 +1,17 @@
 @use "@angular/material" as mat;
 
+// Define custom dark-ish theme palettes
 $custom-primary: mat.define-palette(
-  mat.$cyan-palette,
-  600
-); // #07969e as primary
+  mat.$deep-purple-palette,
+  300
+); // Lighter soft purple (#9575cd)
+
 $custom-accent: mat.define-palette(
-  mat.$blue-grey-palette,
-  900
-); // #07234b as accent
-$custom-theme: mat.define-light-theme(
+  mat.$teal-palette,
+  A100
+); // Softer teal (#a7ffeb)
+
+$custom-theme: mat.define-dark-theme(
   (
     color: (
       primary: $custom-primary,
@@ -17,22 +20,25 @@ $custom-theme: mat.define-light-theme(
   )
 );
 
+// Apply the theme to Angular Material components
 @include mat.all-component-themes($custom-theme);
 
+// Slightly softened dark theme with purple hints
 :root {
-  --primary-white: #fcfcfa;
-  --primary-light: #07969e;
-  --primary-light-hover: #067e86;
-  --secondary-light: #e0e0e0;
-  --secondary-light-hover: #cfcfcf;
-  --primary-dark: #07234b;
-  --primary-gray: #0000000d;
-  --primary-dark-transparent: #07234b40;
-  --background-gradient-start: #eaeaea;
-  --background-gradient-middle: #efefef;
-  --background-gradient-end: #eaeaea;
-  --text-color: #000;
-  --text-color-meta: #5c6c749e;
+  --primary-black: #181818;
+  --primary-dark: #222034;
+  --primary-dark-hover: #2f2a44;
+  --secondary-dark: #2a263b;
+  --secondary-dark-hover: #3b3554;
+  --primary-purple: #9575cd; // More noticeable purple
+  --accent-teal: #a7ffeb;
+  --primary-gray: #252525;
+  --primary-dark-transparent: #181818cc;
+  --background-gradient-start: #201c2b;
+  --background-gradient-middle: #2a223c;
+  --background-gradient-end: #201c2b;
+  --text-color: #eaeaea;
+  --text-color-meta: #b3aecd;
 }
 
 app-root {
