@@ -15,16 +15,18 @@ mat-form-field {
   justify-content: space-between;
   align-items: center;
   font-family: "Trebuchet MS", sans-serif;
-  border-bottom: 1px solid var(--primary-dark);
+  border-bottom: 1px solid var(--primary-purple);
+  padding: 20px 0;
   position: sticky;
   top: 0;
-  background-color: var(--primary-white);
+  background-color: var(--background-gradient-sides);
   z-index: 1000;
   transition: height 0.3s ease-in-out;
 }
 
 .header-wrapper.shrunk {
   height: 56px;
+  border-bottom: none;
 }
 
 .header-wrapper.shrunk .logo {
@@ -32,7 +34,7 @@ mat-form-field {
 }
 
 .header-wrapper.shrunk .title {
-  height: 40px;
+  height: 50px;
 }
 
 .header-wrapper.shrunk p {
@@ -83,6 +85,7 @@ mat-form-field {
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 10px;
 }
 
 .title-wrapper {
@@ -154,22 +157,22 @@ mat-form-field {
   margin-left: 10px;
 }
 
-.user-actions-wrapper {
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-}
+// .user-actions-wrapper {
+//   display: flex;
+//   align-items: center;
+//   margin-right: 10px;
+// }
 
-.user-actions-wrapper mat-icon {
-  margin-left: 15px;
-  cursor: pointer;
-  transition: color 0.2s, transform 0.2s;
-}
+// .user-actions-wrapper mat-icon {
+//   margin-left: 15px;
+//   cursor: pointer;
+//   transition: color 0.2s, transform 0.2s;
+// }
 
-.user-actions-wrapper mat-icon:hover {
-  color: var(--primary-light);
-  transform: scale(1.2);
-}
+// .user-actions-wrapper mat-icon:hover {
+//   color: var(--primary-light);
+//   transform: scale(1.2);
+// }
 
 .material-icons {
   color: var(--primary-dark);
