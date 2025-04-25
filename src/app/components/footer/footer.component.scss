@@ -1,6 +1,6 @@
 .footer {
   background: var(--primary-dark);
-  color: var(--primary-white);
+  color: var(--text-color);
   text-align: center;
   padding: 20px;
   font-size: 14px;
@@ -15,7 +15,7 @@
 }
 
 .footer-nav a {
-  color: var(--primary-white);
+  color: var(--text-color);
   text-decoration: none;
   margin: 0 10px;
 }
