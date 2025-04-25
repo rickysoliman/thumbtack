@@ -4,7 +4,15 @@ import { Post } from '../../models/post.model';
 import { PostComponent } from '../post/post.component';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, switchMap, tap } from 'rxjs';
+import {
+  catchError,
+  combineLatest,
+  map,
+  Observable,
+  of,
+  switchMap,
+  tap,
+} from 'rxjs';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
@@ -19,8 +27,7 @@ export class BoardComponent {
   boardId: string = '';
   boardDoesNotExist: boolean = false;
   isLoading: boolean = true;
-  boardBannerUrl: string =
-    'https://styles.redditmedia.com/t5_2ruhk/styles/bannerBackgroundImage_kkfhkecgv7r81.jpg?width=1448&frame=1&auto=webp&s=4cbe8f68d46cea5c8a726d54fe3b2df43584acd5'; // just hard coding for now for testing
+  boardBannerUrl: string = '';
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -28,20 +35,45 @@ export class BoardComponent {
     this.route.params
       .pipe(
         map((params) => params['board']),
-        tap((board) => (this.boardId = board)),
-        switchMap((boardId) => this.fetchPosts(boardId))
+        tap((board) => {
+          this.boardId = board;
+          this.isLoading = true;
+          this.boardDoesNotExist = false;
+        }),
+        switchMap((boardId) =>
+          combineLatest([this.fetchPosts(boardId), this.fetchAbout(boardId)])
+        ),
+        catchError((error) => {
+          console.error('Error fetching board data:', error);
+          this.boardDoesNotExist = true;
+          this.isLoading = false;
+          return of([[], { data: {} }]);
+        })
       )
-      .subscribe((posts: any) => {
-        this.posts = posts.data.children.map((post: any) => post.data);
+      .subscribe(([posts, about]) => {
+        this.posts = posts?.data?.children?.map((post: any) => post.data) || [];
+        this.boardBannerUrl =
+          about.data.banner_background_image || about.data.banner_img || '';
+
         this.isLoading = false;
       });
   }
 
-  fetchPosts(boardId: string): Observable<Post[]> {
+  fetchPosts(boardId: string): Observable<any> {
     return this.http.get<any>(`https://www.reddit.com/r/${boardId}/.json`).pipe(
       map((resp) => {
         return resp;
       })
     );
+  }
+
+  fetchAbout(boardId: string): Observable<any> {
+    return this.http
+      .get<any>(`https://www.reddit.com/r/${boardId}/about.json`)
+      .pipe(
+        map((resp) => {
+          return resp;
+        })
+      );
   }
 }
