@@ -19,6 +19,8 @@ export class BoardComponent {
   boardId: string = '';
   boardDoesNotExist: boolean = false;
   isLoading: boolean = true;
+  boardBannerUrl: string =
+    'https://styles.redditmedia.com/t5_2ruhk/styles/bannerBackgroundImage_kkfhkecgv7r81.jpg?width=1448&frame=1&auto=webp&s=4cbe8f68d46cea5c8a726d54fe3b2df43584acd5'; // just hard coding for now for testing
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
