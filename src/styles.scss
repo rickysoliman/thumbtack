@@ -26,18 +26,17 @@ $custom-theme: mat.define-dark-theme(
 // Slightly softened dark theme with purple hints
 :root {
   --primary-black: #181818;
-  --primary-dark: #222034;
-  --primary-dark-hover: #2f2a44;
-  --secondary-dark: #2a263b;
-  --secondary-dark-hover: #3b3554;
-  --primary-purple: #9575cd; // More noticeable purple
+  --primary-dark: #0e1116;
+  --primary-dark-hover: #201725;
+  --secondary-dark: #1c1f26;
+  --secondary-dark-hover: #201725;
+  --primary-purple: #3d1e73;
   --accent-teal: #a7ffeb;
   --primary-gray: #252525;
   --primary-dark-transparent: #181818cc;
-  --background-gradient-start: #201c2b;
-  --background-gradient-middle: #2a223c;
-  --background-gradient-end: #201c2b;
-  --text-color: #eaeaea;
+  --background-gradient-sides: #0e1116;
+  --background-gradient-middle: #201725;
+  --text-color: #f8f9fa;
   --text-color-meta: #b3aecd;
 }
 
@@ -53,9 +52,9 @@ body {
   overflow-y: auto;
   background: linear-gradient(
     to right,
-    var(--background-gradient-start) 0%,
+    var(--background-gradient-sides) 0%,
     var(--background-gradient-middle) 50%,
-    var(--background-gradient-end) 100%
+    var(--background-gradient-sides) 100%
   );
   font-family: Roboto, "Helvetica Neue", sans-serif;
   color: var(--text-color);
