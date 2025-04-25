@@ -9,6 +9,7 @@
   text-decoration: none;
   color: inherit;
   background-color: var(--secondary-dark);
+  border-radius: 10px;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
   &:hover {
     color: var(--primary-light);
