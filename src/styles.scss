@@ -35,7 +35,7 @@ $custom-theme: mat.define-dark-theme(
   --primary-gray: #252525;
   --primary-dark-transparent: #181818cc;
   --background-gradient-sides: #0e1116;
-  --background-gradient-middle: #201725;
+  --background-gradient-middle: #412c4d;
   --text-color: #f8f9fa;
   --text-color-meta: #b3aecd;
 }
@@ -51,11 +51,14 @@ body {
   padding: 0;
   overflow-y: auto;
   background: linear-gradient(
-    to right,
+    to bottom right,
     var(--background-gradient-sides) 0%,
     var(--background-gradient-middle) 50%,
     var(--background-gradient-sides) 100%
   );
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   color: var(--text-color);
 
