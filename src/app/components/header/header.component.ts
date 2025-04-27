@@ -6,6 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { HttpClient } from '@angular/common/http';
+import { filter, Observable, switchMap } from 'rxjs';
 
 interface Option {
   title: string;
@@ -30,24 +32,44 @@ interface Option {
 })
 export class HeaderComponent {
   searchControl: FormControl = new FormControl();
-  options: Option[] = [];
+  options: any[] = [];
   isShrunk: boolean = false;
 
+  constructor(private http: HttpClient) {}
+
   ngOnInit(): void {
-    // this.searchControl.valueChanges.subscribe((val) => {
-    //   if (val && val.length > 2) {
-    //     this.options = dummyPosts
-    //       .filter((post: any) =>
-    //         post.title.toLowerCase().includes(val.toLowerCase())
-    //       )
-    //       .map((post: any) => {
-    //         return { title: post.title, image: post.image || null };
-    //       });
-    //   } else {
-    //     this.options = [];
-    //   }
-    // });
+    this.searchControl.valueChanges
+      .pipe(
+        filter((val) => val.length > 2),
+        switchMap((val) => this.search(val))
+      )
+      .subscribe((resp) => {
+        this.options = resp.data.children.map((post: any) => {
+          return {
+            title: post.data.title,
+            thumbnail: this.getThumbnailUrl(post.data),
+          };
+        });
+      });
   }
+
+  search(query: string): Observable<any> {
+    return this.http.get<any[]>(
+      `https://www.reddit.com/search.json?q=${query}`
+    );
+  }
+
+  getThumbnailUrl = (post: any): string | null => {
+    if (post.is_video && post.preview?.images?.[0]?.source?.url) {
+      return post.preview.images[0].source.url.replace(/&amp;/g, '&');
+    }
+
+    if (post.thumbnail && post.thumbnail.startsWith('http')) {
+      return post.thumbnail.replace(/&amp;/g, '&');
+    }
+
+    return null;
+  };
 
   @HostListener('window:scroll', [])
   onWindowScroll() {

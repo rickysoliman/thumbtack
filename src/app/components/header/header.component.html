@@ -25,10 +25,10 @@
         <mat-option [value]="option">
           <div class="autocomplete-option">
             <span>{{ option.title }}</span>
-            @if (option.image) {
+            @if (option.thumbnail) {
             <img
-              [src]="option.image"
-              alt="Post image"
+              [src]="getThumbnailUrl(option)"
+              alt="Post thumbnail"
               class="autocomplete-image"
             />
             }
@@ -38,30 +38,4 @@
       </mat-autocomplete>
     </mat-form-field>
   </form>
-
-  <!-- <div class="user-actions-wrapper">
-    <mat-icon matTooltip="Settings" aria-hidden="false" aria-label="Settings">
-      settings
-    </mat-icon>
-    <mat-icon
-      matTooltip="Account"
-      aria-hidden="false"
-      aria-label="Account Circle"
-    >
-      account_circle
-    </mat-icon>
-    <mat-icon
-      matTooltip="Notifications"
-      aria-hidden="false"
-      aria-label="Notifications"
-    >
-      notifications
-    </mat-icon>
-    <mat-icon matTooltip="Messages" aria-hidden="false" aria-label="Messages">
-      message
-    </mat-icon>
-    <mat-icon matTooltip="Logout" aria-hidden="false" aria-label="Logout">
-      logout
-    </mat-icon>
-  </div> -->
 </div>
