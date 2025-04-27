@@ -68,9 +68,7 @@ export class HeaderComponent {
 
   handleOptionClick(option: any): void {
     this.searchControl.setValue(this.lastSearch); // persist search query after navigation
-    this.router.navigate(['b', option.board, 'comments', option.id], {
-      queryParams: { search: this.searchControl.value },
-    });
+    this.router.navigate(['b', option.board, 'comments', option.id]);
   }
 
   getThumbnailUrl = (post: any): string | null => {
