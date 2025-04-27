@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClient } from '@angular/common/http';
-import { filter, Observable, switchMap } from 'rxjs';
+import { Observable, of, switchMap } from 'rxjs';
 import { Router } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -45,22 +45,28 @@ export class HeaderComponent {
   ngOnInit(): void {
     this.searchControl.valueChanges
       .pipe(
-        filter((val) => val.length > 3),
         switchMap((val) => {
-          this.isLoading = true;
-          this.lastSearch = val;
-          return this.search(val);
+          if (val.length > 3) {
+            this.isLoading = true;
+            this.lastSearch = val;
+            return this.search(val);
+          } else {
+            this.options = [];
+            return of(null);
+          }
         })
       )
       .subscribe((resp) => {
-        this.options = resp.data.children.map((post: any) => {
-          return {
-            title: post.data.title,
-            thumbnail: this.getThumbnailUrl(post.data),
-            board: post.data.subreddit,
-            id: post.data.id,
-          };
-        });
+        if (resp) {
+          this.options = resp.data.children.map((post: any) => {
+            return {
+              title: post.data.title,
+              thumbnail: this.getThumbnailUrl(post.data),
+              board: post.data.subreddit,
+              id: post.data.id,
+            };
+          });
+        }
         this.isLoading = false;
       });
   }
