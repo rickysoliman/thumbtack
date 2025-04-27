@@ -22,7 +22,7 @@
       />
       <mat-autocomplete #auto="matAutocomplete">
         @for (option of options; track option) {
-        <mat-option [value]="option">
+        <mat-option (click)="handleOptionClick(option)">
           <div class="autocomplete-option">
             <span>{{ option.title }}</span>
             @if (option.thumbnail) {

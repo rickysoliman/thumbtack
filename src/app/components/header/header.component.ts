@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClient } from '@angular/common/http';
 import { filter, Observable, switchMap } from 'rxjs';
+import { Router } from '@angular/router';
 
 interface Option {
   title: string;
@@ -32,22 +33,28 @@ interface Option {
 })
 export class HeaderComponent {
   searchControl: FormControl = new FormControl();
+  lastSearch: string = ''; // persist search query after navigation
   options: any[] = [];
   isShrunk: boolean = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.searchControl.valueChanges
       .pipe(
         filter((val) => val.length > 2),
-        switchMap((val) => this.search(val))
+        switchMap((val) => {
+          this.lastSearch = val;
+          return this.search(val);
+        })
       )
       .subscribe((resp) => {
         this.options = resp.data.children.map((post: any) => {
           return {
             title: post.data.title,
             thumbnail: this.getThumbnailUrl(post.data),
+            board: post.data.subreddit,
+            id: post.data.id,
           };
         });
       });
@@ -57,6 +64,13 @@ export class HeaderComponent {
     return this.http.get<any[]>(
       `https://www.reddit.com/search.json?q=${query}`
     );
+  }
+
+  handleOptionClick(option: any): void {
+    this.searchControl.setValue(this.lastSearch); // persist search query after navigation
+    this.router.navigate(['b', option.board, 'comments', option.id], {
+      queryParams: { search: this.searchControl.value },
+    });
   }
 
   getThumbnailUrl = (post: any): string | null => {
