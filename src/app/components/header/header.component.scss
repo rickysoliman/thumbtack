@@ -161,3 +161,8 @@ mat-form-field {
   color: var(--text-color);
   margin: 5px;
 }
+
+.mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: var(--text-color);
+  margin: 0 20px;
+}

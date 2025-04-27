@@ -9,6 +9,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { HttpClient } from '@angular/common/http';
 import { filter, Observable, switchMap } from 'rxjs';
 import { Router } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 interface Option {
   title: string;
@@ -27,6 +28,7 @@ interface Option {
     MatInputModule,
     MatIconModule,
     MatTooltipModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -36,14 +38,16 @@ export class HeaderComponent {
   lastSearch: string = ''; // persist search query after navigation
   options: any[] = [];
   isShrunk: boolean = false;
+  isLoading: boolean = false;
 
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     this.searchControl.valueChanges
       .pipe(
-        filter((val) => val.length > 2),
+        filter((val) => val.length > 3),
         switchMap((val) => {
+          this.isLoading = true;
           this.lastSearch = val;
           return this.search(val);
         })
@@ -57,6 +61,7 @@ export class HeaderComponent {
             id: post.data.id,
           };
         });
+        this.isLoading = false;
       });
   }
 
