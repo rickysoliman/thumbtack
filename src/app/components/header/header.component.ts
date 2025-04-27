@@ -85,7 +85,8 @@ export class HeaderComponent {
   }
 
   handleSearchClick(): void {
-    console.log('handleSearchClick');
+    this.searchControl.setValue(this.lastSearch); // persist search query after navigation
+    this.router.navigate(['search']);
   }
 
   getThumbnailUrl = (post: any): string | null => {

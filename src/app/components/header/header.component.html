@@ -33,6 +33,7 @@
       <button
         matSuffix
         mat-button
+        [disabled]="!searchControl.value"
         class="search-button primary-button"
         (click)="handleSearchClick()"
       >
