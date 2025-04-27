@@ -29,6 +29,16 @@
         [matAutocomplete]="auto"
         class="search-input"
       />
+
+      <button
+        matSuffix
+        mat-button
+        class="search-button primary-button"
+        (click)="handleSearchClick()"
+      >
+        Search
+      </button>
+
       <mat-autocomplete #auto="matAutocomplete">
         @for (option of options; track option) {
         <mat-option (click)="handleOptionClick(option)">

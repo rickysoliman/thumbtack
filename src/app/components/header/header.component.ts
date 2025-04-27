@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of, switchMap } from 'rxjs';
 import { Router } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
 
 interface Option {
   title: string;
@@ -29,6 +30,7 @@ interface Option {
     MatIconModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
+    MatButtonModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -80,6 +82,10 @@ export class HeaderComponent {
   handleOptionClick(option: any): void {
     this.searchControl.setValue(this.lastSearch); // persist search query after navigation
     this.router.navigate(['b', option.board, 'comments', option.id]);
+  }
+
+  handleSearchClick(): void {
+    console.log('handleSearchClick');
   }
 
   getThumbnailUrl = (post: any): string | null => {

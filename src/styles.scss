@@ -31,7 +31,8 @@ $custom-theme: mat.define-dark-theme(
   --secondary-dark: #1c1f26;
   --secondary-dark-hover: #201725;
   --primary-purple: #3d1e73;
-  --accent-teal: #a7ffeb;
+  --accent-purple: #561cba;
+  --accent-purple-hover: #7027ee;
   --primary-gray: #252525;
   --primary-dark-transparent: #181818cc;
   --background-gradient-sides: #0e1116;
@@ -63,7 +64,7 @@ body {
   color: var(--text-color);
 
   .primary-button {
-    background-color: var(--primary-light);
+    background-color: var(--primary-purple);
     color: var(--text-color);
     padding: 10px 20px;
     border: none;
@@ -73,7 +74,7 @@ body {
     transition: background-color 0ss;
     margin: 10px 0;
     &:hover {
-      background-color: var(--primary-light-hover);
+      background-color: var(--primary-purple-hover);
     }
   }
 
