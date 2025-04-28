@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable, switchMap } from 'rxjs';
 
 @Component({
@@ -14,7 +14,11 @@ export class SearchResultsPageComponent {
   searchQuery: string = '';
   results: any[] = [];
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.route.queryParams
@@ -27,6 +31,10 @@ export class SearchResultsPageComponent {
       .subscribe((resp: any) => {
         this.results = resp.data.children.map((child: any) => child.data);
       });
+  }
+
+  handleResultClick(result: any): void {
+    this.router.navigate(['b', result.subreddit, 'comments', result.id]);
   }
 
   fetchSearchResults(query: string): Observable<any> {
