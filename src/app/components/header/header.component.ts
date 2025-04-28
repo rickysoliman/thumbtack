@@ -86,7 +86,9 @@ export class HeaderComponent {
 
   handleSearchClick(): void {
     this.searchControl.setValue(this.lastSearch); // persist search query after navigation
-    this.router.navigate(['search']);
+    this.router.navigate(['/search'], {
+      queryParams: { q: this.searchControl.value },
+    });
   }
 
   handleEnterKeyDown(): void {
