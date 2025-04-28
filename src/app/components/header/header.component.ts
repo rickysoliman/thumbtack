@@ -51,7 +51,7 @@ export class HeaderComponent {
           if (val.length > 3) {
             this.isLoading = true;
             this.lastSearch = val;
-            return this.search(val);
+            return this.searchBoards(val);
           } else {
             this.options = [];
             return of(null);
@@ -59,29 +59,26 @@ export class HeaderComponent {
         })
       )
       .subscribe((resp) => {
-        if (resp) {
-          this.options = resp.data.children.map((post: any) => {
-            return {
-              title: post.data.title,
-              thumbnail: this.getThumbnailUrl(post.data),
-              board: post.data.subreddit,
-              id: post.data.id,
-            };
-          });
-        }
+        this.options = resp.data.children.map((post: any) => {
+          return {
+            displayName: post.data.display_name,
+            iconImg: post.data.icon_img,
+          };
+        });
+
         this.isLoading = false;
       });
   }
 
-  search(query: string): Observable<any> {
+  searchBoards(query: string): Observable<any> {
     return this.http.get<any[]>(
-      `https://www.reddit.com/search.json?q=${query}`
+      `https://www.reddit.com/subreddits/search.json?q=${query}`
     );
   }
 
   handleOptionClick(option: any): void {
     this.searchControl.setValue(this.lastSearch); // persist search query after navigation
-    this.router.navigate(['b', option.board, 'comments', option.id]);
+    this.router.navigate(['b', option.displayName]);
   }
 
   handleSearchClick(): void {
