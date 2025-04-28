@@ -32,13 +32,14 @@ $custom-theme: mat.define-dark-theme(
   --secondary-dark-hover: #201725;
   --primary-purple: #3d1e73;
   --accent-purple: #561cba;
-  --accent-purple-hover: #7027ee;
+  --accent-purple-hover: #986fe0;
   --primary-gray: #252525;
   --primary-dark-transparent: #181818cc;
   --background-gradient-sides: #0e1116;
   --background-gradient-middle: #412c4d;
   --text-color: #f8f9fa;
   --text-color-meta: #b3aecd;
+  --button-disabled: #79787f;
 }
 
 app-root {
