@@ -1,0 +1,70 @@
+.results-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.result-container {
+  width: 100%;
+  max-width: 800px;
+  border: 1px solid var(--primary-purple);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 10px;
+  font-family: "Trebuchet MS", sans-serif;
+  text-decoration: none;
+  color: inherit;
+  background-color: var(--secondary-dark);
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.result-container:hover {
+  color: var(--primary-light);
+}
+
+.result-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--text-color);
+  gap: 10px;
+  width: 100%;
+}
+
+.thumbnail img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.subreddit {
+  margin: 0.2rem 0 0;
+  color: #888;
+  font-size: 0.9rem;
+}

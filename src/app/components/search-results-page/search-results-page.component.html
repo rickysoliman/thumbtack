@@ -1,1 +1,22 @@
-<p>search-results-page works!</p>
+<div class="results-wrapper">
+  @for (result of results; track result.id) {
+  <div class="result-container">
+    <a
+      [href]="'https://www.reddit.com' + result.permalink"
+      target="_blank"
+      class="result-link"
+    >
+      <div class="content">
+        <h2 class="title">{{ result.title }}</h2>
+        <p class="subreddit">{{ result.subreddit_name_prefixed }}</p>
+      </div>
+
+      <div class="thumbnail">
+        @if (result.thumbnail && result.thumbnail.startsWith('http')) {
+        <img [src]="result.thumbnail" alt="Thumbnail" />
+        }
+      </div>
+    </a>
+  </div>
+  }
+</div>
