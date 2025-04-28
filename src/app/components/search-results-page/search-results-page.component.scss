@@ -22,6 +22,9 @@
   color: inherit;
   background-color: var(--secondary-dark);
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .result-container:hover {
@@ -60,6 +63,7 @@
   font-weight: bold;
   &:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 }
 
