@@ -89,6 +89,12 @@ export class HeaderComponent {
     this.router.navigate(['search']);
   }
 
+  handleEnterKeyDown(): void {
+    if (!this.searchControl.value) return;
+
+    this.handleSearchClick();
+  }
+
   getThumbnailUrl = (post: any): string | null => {
     if (post.is_video && post.preview?.images?.[0]?.source?.url) {
       return post.preview.images[0].source.url.replace(/&amp;/g, '&');

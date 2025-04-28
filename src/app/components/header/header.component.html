@@ -36,6 +36,7 @@
         [disabled]="!searchControl.value"
         class="search-button primary-button"
         (click)="handleSearchClick()"
+        (keydown.enter)="handleEnterKeyDown()"
       >
         Search
       </button>
