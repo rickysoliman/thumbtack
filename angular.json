@@ -42,7 +42,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/",
+              "baseHref": "/thumbtack/",
               "optimization": true,
               "sourceMap": false,
               "namedChunks": false,
@@ -65,7 +65,7 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/",
+              "baseHref": "/thumbtack/",
               "optimization": false,
               "sourceMap": true,
               "extractLicenses": false
