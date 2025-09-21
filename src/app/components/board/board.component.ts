@@ -27,7 +27,6 @@ export class BoardComponent {
   boardId: string = '';
   boardDoesNotExist: boolean = false;
   isLoading: boolean = true;
-  boardBannerUrl: string = '';
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -52,8 +51,6 @@ export class BoardComponent {
       )
       .subscribe(([posts, about]) => {
         this.posts = posts?.data?.children?.map((post: any) => post.data) || [];
-        this.boardBannerUrl =
-          about.data.banner_background_image || about.data.banner_img || '';
 
         this.isLoading = false;
       });

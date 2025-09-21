@@ -1,11 +1,6 @@
 <ng-container *ngIf="!isLoading; else loadingSpinner">
   <ng-container *ngIf="!boardDoesNotExist; else boardNotFound">
     <div class="board-wrapper">
-      <!-- Board Banner -->
-      <div class="board-banner">
-        <img [src]="boardBannerUrl" alt="Board Banner" />
-      </div>
-
       <!-- Board Header -->
       <div class="board-header">
         <h1>b/{{ boardId }}</h1>
